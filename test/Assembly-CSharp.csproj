@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\playerMove.cs" />
-    <Compile Include="Assets\cameraRotation.cs" />
+    <Compile Include="Assets\Sword.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

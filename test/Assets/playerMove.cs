@@ -16,10 +16,6 @@ public class playerMove : MonoBehaviour
     Vector3 x, y, z;
     Vector3 rolling;
 
-    GameObject showObject;
-    public string targetName;
-    public string showName;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,10 +24,6 @@ public class playerMove : MonoBehaviour
         myRb = this.GetComponent<Rigidbody>();
 
         rolling = new Vector3(0.1f, 0.0f, 0.0f);
-
-        showObject = GameObject.Find(showName);
-        showObject.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -96,9 +88,6 @@ public class playerMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == targetName)
-        {
-            showObject.SetActive(true);
-        }
+        
     }
 }

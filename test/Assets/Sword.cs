@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Sword : MonoBehaviour
 {
     GameObject player;
     Vector3 playerPos;
     Rigidbody rb;
+    Vector3 rbPos;
+
+    Vector3 tpPos;
   
     Vector3 now;
 
@@ -29,6 +33,7 @@ public class Sword : MonoBehaviour
         collider = GetComponent<BoxCollider>();
          
         rb = GetComponent<Rigidbody>();
+        rbPos = rb.position;
         now = rb.position;
         speed = 0.0025f;
     }
@@ -65,25 +70,23 @@ public class Sword : MonoBehaviour
                 time = 0;
             }
         }
-
         if (equipmentFlag)
         {
-            player = GameObject.Find("Player");
-            playerPos = player.transform.position;
-            rb.position = playerPos;
+            
         }
     }
-
     void Update()
     {
-  
     }
 
     void OnCollisionEnter(Collision collision)                 // “–‚½‚è”»’è‚ðŽ@’m
     {
+        rb.gameObject.transform.position = new Vector3(0.0f, 1.5f, 6.0f);
+
+        Destroy(rb);
         moveFlag = false;
         equipmentFlag = true;
-     //   collider.enabled = false;
+        collider.enabled = false;
         this.gameObject.transform.parent = RootObject.gameObject.transform;
     }
 }

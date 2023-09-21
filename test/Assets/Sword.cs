@@ -7,17 +7,13 @@ public class Sword : MonoBehaviour
 {
     GameObject player;
     Vector3 playerPos;
-    Rigidbody rb;
-    Vector3 rbPos;
-
-    Vector3 tpPos;
-  
-    Vector3 now;
-
-    BoxCollider collider;
-
-    bool moveFlag = true;
+    Vector3 playerPos1;
+    Vector3 eqipPos;
     bool equipmentFlag = false;
+
+    Rigidbody rb;
+    Vector3 now;
+    bool moveFlag = true;
 
     float speed;
 
@@ -30,10 +26,11 @@ public class Sword : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<BoxCollider>();
-         
+        player = GameObject.Find("Player");
+        eqipPos = new Vector3(0.3f, 1.0f, 0.0f);
+        
+
         rb = GetComponent<Rigidbody>();
-        rbPos = rb.position;
         now = rb.position;
         speed = 0.0025f;
     }
@@ -41,6 +38,7 @@ public class Sword : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if(moveFlag)
         {
             if (time <= timeMax1)
@@ -70,23 +68,45 @@ public class Sword : MonoBehaviour
                 time = 0;
             }
         }
-        if (equipmentFlag)
-        {
-            
-        }
+
+ 
     }
+
     void Update()
     {
+        if (equipmentFlag)
+        {
+            playerPos = (player.transform.position + eqipPos);
+            playerPos1 = playerPos * player.transform.forward;
+            transform.position = playerPos1;
+        }
     }
 
-    void OnCollisionEnter(Collision collision)                 // “–‚½‚è”»’è‚ðŽ@’m
+    void OnTriggerEnter(Collider other) // “–‚½‚è”»’è‚ðŽ@’m
     {
-        //rb.gameObject.transform.position = new Vector3(0.0f, 1.5f, 4.5f);
-
-        Destroy(rb);
-        moveFlag = false;
-        equipmentFlag = true;
-        collider.enabled = false;
-        this.gameObject.transform.parent = RootObject.gameObject.transform;
+        if(other.gameObject.tag == "Player")
+        {
+            moveFlag = false;
+            equipmentFlag = true;
+            this.gameObject.transform.parent = RootObject.gameObject.transform;
+        }
     }
+
+    class Vector2
+    {
+        public float x;
+        public float y;
+        public float z;
+
+        public static Vector2 operator*(Vector3 v1, Vector3 v2)
+        {
+
+            return new Vector2(v1.x * v2.x, v1.y * v2.y);
+        }
+            
+
+        
+
+    }
+
 }

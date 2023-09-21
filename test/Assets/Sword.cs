@@ -81,7 +81,7 @@ public class Sword : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)                 // “–‚½‚è”»’è‚ðŽ@’m
     {
-        rb.gameObject.transform.position = new Vector3(0.0f, 1.5f, 6.0f);
+        //rb.gameObject.transform.position = new Vector3(0.0f, 1.5f, 4.5f);
 
         Destroy(rb);
         moveFlag = false;

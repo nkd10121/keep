@@ -1,112 +1,123 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Net.Mime;
+using System.Security.Cryptography;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
 public class Sword : MonoBehaviour
 {
     GameObject player;
+    //プレイヤーの座標
     Vector3 playerPos;
-    Vector3 playerPos1;
+    //プレイヤーのtransformを取得用
+    Transform playerTransform;
+
+    //プレイヤーに当たったかどうか
+    bool isHitFlag = false;
+
+    //装備前の剣の座標
+    Vector3 swordPos;
+    //装備後の剣の座標
     Vector3 eqipPos;
-    bool equipmentFlag = false;
-
-    Rigidbody rb;
-    Vector3 now;
-    bool moveFlag = true;
-
+    //剣の移動速度
     float speed;
 
     int time = 0;
+    //剣の上昇時間
     int timeMax1 = 30;
+    //剣の下降時間
     int timeMax2 = 60;
 
+    //親オブジェクトにするオブジェクト名
     public GameObject RootObject;
 
     // Start is called before the first frame update
     void Start()
     {
+        //"player"を探す
         player = GameObject.Find("Player");
-        eqipPos = new Vector3(0.3f, 1.0f, 0.0f);
-        
 
-        rb = GetComponent<Rigidbody>();
-        now = rb.position;
+        //装備する前の剣の座標を指定
+        swordPos = new Vector3(0.0f,1.0f,3.0f);
+
+        //装備した後の剣の座標を指定
+        eqipPos = new Vector3(0.3f, 1.0f, 0.0f);
+
+        //剣の移動速度
         speed = 0.0025f;
+
+        //プレイヤーのtransformを取得
+        playerTransform = player.transform;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if(moveFlag)
+        //プレイヤーに当たる前の処理
+        if (!isHitFlag)
         {
             if (time <= timeMax1)
             {
+                //speedの再設定
                 if (time == 0)
                 {
                     speed = 0.005f;
                 }
-                now += new Vector3(0.0f, speed, 0.0f);
+                //剣を上に移動
+                swordPos.y += speed;
+                //移動速度を減らす
                 speed -= 0.0002f;
                 time++;
-                rb.position = now;
+                //剣の座標設定
+                transform.position = swordPos;
             }
             else if (time <= timeMax2)
             {
+                //speedの再設定
+
                 if (time == timeMax1 + 1)
                 {
                     speed = 0.005f;
                 }
-                now -= new Vector3(0.0f, speed, 0.0f);
+                //剣を下に移動
+                swordPos.y -= speed;
+                //移動速度を減らす
                 speed -= 0.0002f;
                 time++;
-                rb.position = now;
+                //剣の座標設定
+                transform.position = swordPos;
             }
             else
             {
                 time = 0;
             }
         }
-
- 
-    }
-
-    void Update()
-    {
-        if (equipmentFlag)
-        {
-            playerPos = (player.transform.position + eqipPos);
-            playerPos1 = playerPos * player.transform.forward;
-            transform.position = playerPos1;
-        }
     }
 
     void OnTriggerEnter(Collider other) // 当たり判定を察知
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            moveFlag = false;
-            equipmentFlag = true;
+            //プレイヤーに当たった(剣の動きを消す)
+            isHitFlag = true;
+            //剣をプレイヤーの子オブジェクトにする
             this.gameObject.transform.parent = RootObject.gameObject.transform;
+
+            //ワールド座標を基準に、回転を取得
+            Vector3 worldAngle = playerTransform.eulerAngles;
+            //Rotationを0に(もともと90に設定して配置している)
+            worldAngle.y = 0.0f;
+            //Rotationを設定
+            transform.eulerAngles = worldAngle;
+
+            //プレイヤーの座標を取得
+            playerPos = player.transform.position;
+            //剣を装備した時の剣の位置に移動させるための座標を足す
+            playerPos += eqipPos;
+            //剣の装備後の座標を設定
+            transform.position = playerPos;
         }
     }
-
-    class Vector2
-    {
-        public float x;
-        public float y;
-        public float z;
-
-        public static Vector2 operator*(Vector3 v1, Vector3 v2)
-        {
-
-            return new Vector2(v1.x * v2.x, v1.y * v2.y);
-        }
-            
-
-        
-
-    }
-
 }

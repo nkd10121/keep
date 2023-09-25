@@ -9,8 +9,10 @@ using static UnityEditor.PlayerSettings;
 public class Sword : MonoBehaviour
 {
     GameObject player;
+    GameObject handPos;
+
     //プレイヤーの座標
-    Vector3 playerPos;
+    Vector3 playerLocalPos;
     //プレイヤーのtransformを取得用
     Transform playerTransform;
 
@@ -38,9 +40,10 @@ public class Sword : MonoBehaviour
     {
         //"player"を探す
         player = GameObject.Find("Player");
+        handPos = GameObject.Find("mixamorig_RightHandMiddle1");
 
         //装備する前の剣の座標を指定
-        swordPos = new Vector3(0.0f,1.0f,3.0f);
+        swordPos = new Vector3(0.0f, 1.0f, 3.0f);
 
         //装備した後の剣の座標を指定
         eqipPos = new Vector3(0.3f, 1.0f, 0.0f);
@@ -106,18 +109,19 @@ public class Sword : MonoBehaviour
             this.gameObject.transform.parent = RootObject.gameObject.transform;
 
             //ワールド座標を基準に、回転を取得
-            Vector3 worldAngle = playerTransform.eulerAngles;
+            Vector3 localAngle = playerTransform.localEulerAngles;
             //Rotationを0に(もともと90に設定して配置している)
-            worldAngle.y = 0.0f;
+            localAngle.y = 0.0f;
             //Rotationを設定
-            transform.eulerAngles = worldAngle;
+            transform.localEulerAngles = localAngle;
 
-            //プレイヤーの座標を取得
-            playerPos = player.transform.position;
+            playerLocalPos.x = 0.0f;
+            playerLocalPos.y = 0.0f;
+            playerLocalPos.z = 0.0f;
             //剣を装備した時の剣の位置に移動させるための座標を足す
-            playerPos += eqipPos;
+            playerLocalPos += eqipPos;
             //剣の装備後の座標を設定
-            transform.position = playerPos;
+            transform.localPosition = playerLocalPos;
         }
     }
 }

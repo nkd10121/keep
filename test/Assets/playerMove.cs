@@ -85,19 +85,4 @@ public class playerMove : MonoBehaviour
             }
         }
     }
-
-    private void OntriggerEnter(Collision other)
-    {
-        if(other.gameObject.tag == "Sword")
-        {
-            GameObject handGrip = transform.Find("have").gameObject;
-
-            GameObject weapon = Instantiate(Resources.Load("Prefabs/ObjSword"),handGrip.transform.position, handGrip.transform.rotation) as GameObject;
-            weapon.transform.Rotate(0, 90, 0);
-            weapon.transform.Translate(0, -1, 0);
-            weapon.transform.parent = handGrip.transform;
-
-            //have.GetWeapon();
-        }
-    }
 }

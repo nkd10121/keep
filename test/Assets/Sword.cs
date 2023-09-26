@@ -4,12 +4,10 @@ using System.Collections.Specialized;
 using System.Net.Mime;
 using System.Security.Cryptography;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class Sword : MonoBehaviour
 {
     GameObject player;
-    GameObject handPos;
 
     //プレイヤーの座標
     Vector3 playerLocalPos;
@@ -25,12 +23,13 @@ public class Sword : MonoBehaviour
     Vector3 eqipPos;
     //剣の移動速度
     float speed;
+    float updownSpeed;
 
     int time = 0;
     //剣の上昇時間
-    int timeMax1 = 30;
+    int timeMax1 = 40;
     //剣の下降時間
-    int timeMax2 = 60;
+    int timeMax2 = 80;
 
     //親オブジェクトにするオブジェクト名
     public GameObject RootObject;
@@ -39,14 +38,16 @@ public class Sword : MonoBehaviour
     void Start()
     {
         //"player"を探す
-        player = GameObject.Find("Player");
-        handPos = GameObject.Find("mixamorig_RightHandMiddle1");
-
+        //player = GameObject.Find("Player");
+        player = GameObject.Find("unitychan");
         //装備する前の剣の座標を指定
-        swordPos = new Vector3(0.0f, 1.0f, 3.0f);
+        swordPos = new Vector3(0.0f,1.0f,3.0f);
 
         //装備した後の剣の座標を指定
-        eqipPos = new Vector3(0.3f, 1.0f, 0.0f);
+        //eqipPos = new Vector3(0.3f, 1.0f, 0.0f);
+        eqipPos = new Vector3(-0.019f, -0.808f, 0.017f);
+
+        updownSpeed = 0.0005f;
 
         //剣の移動速度
         speed = 0.0025f;
@@ -66,12 +67,12 @@ public class Sword : MonoBehaviour
                 //speedの再設定
                 if (time == 0)
                 {
-                    speed = 0.005f;
+                    speed = 0.004f;
                 }
                 //剣を上に移動
                 swordPos.y += speed;
                 //移動速度を減らす
-                speed -= 0.0002f;
+                speed -= updownSpeed;
                 time++;
                 //剣の座標設定
                 transform.position = swordPos;
@@ -82,12 +83,12 @@ public class Sword : MonoBehaviour
 
                 if (time == timeMax1 + 1)
                 {
-                    speed = 0.005f;
+                    speed = 0.004f;
                 }
                 //剣を下に移動
                 swordPos.y -= speed;
                 //移動速度を減らす
-                speed -= 0.0002f;
+                speed -= updownSpeed;
                 time++;
                 //剣の座標設定
                 transform.position = swordPos;
@@ -103,6 +104,8 @@ public class Sword : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("hit");
+
             //プレイヤーに当たった(剣の動きを消す)
             isHitFlag = true;
             //剣をプレイヤーの子オブジェクトにする

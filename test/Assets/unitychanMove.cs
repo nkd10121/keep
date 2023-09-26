@@ -13,7 +13,6 @@ public class unitychanMove : MonoBehaviour
     float rotate = 0;
     bool moveFrontFlag = false;
     bool moveBackFlag = false;
-    bool rollFlag = false;
     Vector3 move;
     Vector3 angle;
 
@@ -23,8 +22,10 @@ public class unitychanMove : MonoBehaviour
     bool jumpFlag = false;
     public bool flag = false;
 
+    bool runFlag = false;
+
+
     Vector3 x, y, z;
-    Vector3 rolling;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +37,6 @@ public class unitychanMove : MonoBehaviour
         forceDirection = new Vector3(0f, 1.0f, 0f);
         forcePower = 6f;
         force = forcePower * forceDirection;
-
-        rolling = new Vector3(0.1f, 0.0f, 0.0f);
     }
 
     // Update is called once per frame
@@ -84,6 +83,17 @@ public class unitychanMove : MonoBehaviour
         {
             jumpFlag = false;
         }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            runFlag = true;
+        }
+        else
+        {
+            runFlag = false;
+            moveSpeed = 0.3f;
+
+        }
     }
 
     void FixedUpdate()
@@ -103,20 +113,9 @@ public class unitychanMove : MonoBehaviour
             myRb.AddForce(force, ForceMode.Impulse);
         }
 
-
-        if (rollFlag == true)
+        if(runFlag)
         {
-            if (rolltimer < 10)
-            {
-                this.transform.RotateAround(this.transform.position + move, rolling, 36.0f);
-                myRb.position += move * 30;
-                rolltimer++;
-            }
-            else
-            {
-                rolltimer = 0;
-                rollFlag = false;
-            }
+            moveSpeed = 0.7f;
         }
     }
 

@@ -21,7 +21,7 @@ public class unitychanMove : MonoBehaviour
     float forcePower;
     Vector3 force;
     bool jumpFlag = false;
-    int flag = 0;
+    public bool flag = false;
 
     Vector3 x, y, z;
     Vector3 rolling;
@@ -75,10 +75,10 @@ public class unitychanMove : MonoBehaviour
 
             this.transform.rotation = Quaternion.AngleAxis(rotate, angle);
         }
-        if (Input.GetKeyDown(KeyCode.Space) && flag == 0)
+        if (Input.GetKey(KeyCode.Space) && !flag)
         {
             jumpFlag = true;
-            flag = 1;
+
         }
         else
         {
@@ -99,7 +99,8 @@ public class unitychanMove : MonoBehaviour
 
         if (jumpFlag)
         {
-             myRb.AddForce(transform.up * forcePower, ForceMode.Impulse);
+            flag = true;
+            myRb.AddForce(force, ForceMode.Impulse);
         }
 
 
@@ -123,7 +124,7 @@ public class unitychanMove : MonoBehaviour
     {
         if(other.gameObject.tag == "ground")
         {
-            flag = 0;
+            flag = false;
         }
     }
 }

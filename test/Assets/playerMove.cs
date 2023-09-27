@@ -6,9 +6,6 @@ using UnityEngine;
 public class playerMove : MonoBehaviour
 {
     Rigidbody myRb;
-
-
-
     int rolltimer = 0;
     float moveSpeed;
     float rotate = 0;
@@ -24,7 +21,7 @@ public class playerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = 0.3f;
+        moveSpeed = 0.07f;
         angle = new Vector3(0, 1.0f, 0);
         myRb = this.GetComponent<Rigidbody>();
 

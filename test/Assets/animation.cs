@@ -20,7 +20,9 @@ public class animation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        //移動
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) ||
+            Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
             animator.SetBool("move", true);
         }
@@ -29,9 +31,26 @@ public class animation : MonoBehaviour
             animator.SetBool("move", false);
         }
 
-        if(Input.GetMouseButton(0))
+        //ジャンプ
+        if (Input.GetKey(KeyCode.Space) && !(Input.GetKey(KeyCode.LeftShift)))
         {
-            if(pushFlag == false)
+            animator.SetTrigger("jumpTrigger");
+        }
+
+        //ダッシュ
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            animator.SetBool("dashBool", true);
+        }
+        else
+        {
+            animator.SetBool("dashBool", false);
+        }
+
+        //攻撃
+        if (Input.GetMouseButton(0))
+        {
+            if (pushFlag == false)
             {
                 pushFlag = true;
                 animator.SetBool(parameterName, parameterValue);

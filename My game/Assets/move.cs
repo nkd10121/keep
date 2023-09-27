@@ -29,6 +29,7 @@ public class move : MonoBehaviour
         speed = 0.05f;
         playerPos.x += speed;
         transform.position = playerPos;
+
     }
 
     void OnCollisionEnter2D(Collision2D other)

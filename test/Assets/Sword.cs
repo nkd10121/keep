@@ -104,7 +104,7 @@ public class Sword : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
 
             //ƒvƒŒƒCƒ„[‚É“–‚½‚Á‚½(Œ•‚Ì“®‚«‚ğÁ‚·)
             isHitFlag = true;

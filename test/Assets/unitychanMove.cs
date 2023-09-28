@@ -20,6 +20,8 @@ public class unitychanMove : MonoBehaviour
 
     bool moveLeftFlag = false;
 
+    public int hp;
+
     Vector3 move1;
     Vector3 move2;
         
@@ -37,6 +39,8 @@ public class unitychanMove : MonoBehaviour
     void Start()
     {
         moveSpeed = 0.15f;
+        hp = 500;
+
         angle = new Vector3(0, 1.0f, 0);
         myRb = this.GetComponent<Rigidbody>();
 
@@ -123,7 +127,11 @@ public class unitychanMove : MonoBehaviour
         {
             runFlag = false;
             moveSpeed = 0.15f;
+        }
 
+        if(hp <= 0)
+        {
+            Destroy(this);
         }
     }
 
@@ -166,6 +174,16 @@ public class unitychanMove : MonoBehaviour
         if(other.gameObject.tag == "ground")
         {
             flag = false;
+        }
+
+ 
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.tag == "enemy")
+        {
+            hp -= 1;
         }
     }
 }

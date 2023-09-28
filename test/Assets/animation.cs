@@ -47,18 +47,18 @@ public class animation : MonoBehaviour
             animator.SetBool("dashBool", false);
         }
 
-        //çUåÇ
-        if (Input.GetMouseButton(0))
-        {
-            if (pushFlag == false)
-            {
-                pushFlag = true;
-                animator.SetBool(parameterName, parameterValue);
-            }
-        }
-        else
-        {
-            pushFlag = false;
-        }
+        ////çUåÇ
+        //if (Input.GetMouseButton(0))
+        //{
+        //    if (pushFlag == false)
+        //    {
+        //        pushFlag = true;
+        //        animator.SetBool(parameterName, parameterValue);
+        //    }
+        //}
+        //else
+        //{
+        //    pushFlag = false;
+        //}
     }
 }

@@ -4,29 +4,24 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    int hp;
+
+    private float speed = 5.0f;
+    [SerializeField] Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
-        hp = 3;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(hp == 0) 
-        {
-            Destroy(this);
-        }
+        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
-    void OnTirrgerEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Sword")
-        {
-            Debug.Log("attack");
-            hp--;
-        }
+
     }
 }

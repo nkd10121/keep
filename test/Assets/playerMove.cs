@@ -6,6 +6,9 @@ using UnityEngine;
 public class playerMove : MonoBehaviour
 {
     Rigidbody myRb;
+
+    public int hp;
+
     int rolltimer = 0;
     float moveSpeed;
     float rotate = 0;
@@ -26,6 +29,8 @@ public class playerMove : MonoBehaviour
         myRb = this.GetComponent<Rigidbody>();
 
         rolling = new Vector3(0.1f, 0.0f, 0.0f);
+
+        hp = 10;
     }
 
     // Update is called once per frame
@@ -67,6 +72,11 @@ public class playerMove : MonoBehaviour
         {
             rollFlag = true;
         }
+
+        if(hp == 0)
+        {
+            Destroy(this);
+        }
     }
 
     void FixedUpdate()
@@ -93,6 +103,14 @@ public class playerMove : MonoBehaviour
                 rolltimer = 0;
                 rollFlag = false;
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "enemy")
+        {
+
         }
     }
 }

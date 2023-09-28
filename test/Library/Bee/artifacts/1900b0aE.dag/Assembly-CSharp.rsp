@@ -355,7 +355,6 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/animation.cs"
 "Assets/CameraScript.cs"
-"Assets/EnemyController.cs"
 "Assets/playerMove.cs"
 "Assets/Sword.cs"
 "Assets/unity-chan!/Unity-chan! Model/Scripts/AutoBlink.cs"

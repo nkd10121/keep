@@ -7,7 +7,6 @@ TagManager:
   - New tag
   - Sword
   - ground
-  - enemy
   layers:
   - Default
   - TransparentFX

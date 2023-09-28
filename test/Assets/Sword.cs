@@ -31,13 +31,8 @@ public class Sword : MonoBehaviour
     //剣の下降時間
     int timeMax2 = 80;
 
-    //敵
-    GameObject ene;
-
     //親オブジェクトにするオブジェクト名
     public GameObject RootObject;
-    public BoxCollider col;
-    int hitCount;
 
     // Start is called before the first frame update
     void Start()
@@ -59,11 +54,6 @@ public class Sword : MonoBehaviour
 
         //プレイヤーのtransformを取得
         playerTransform = player.transform;
-
-        ene = GameObject.Find("enemy");
-        col = GetComponent<BoxCollider>();
-        hitCount = 0;
-
     }
 
     // Update is called once per frame
@@ -108,15 +98,6 @@ public class Sword : MonoBehaviour
                 time = 0;
             }
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            ////左手コライダーをオンにする
-            col.enabled = true;
-
-            //一定時間後にコライダーの機能をオフにする
-            Invoke("ColliderReset", 2f);
-        }
     }
 
     void OnTriggerEnter(Collider other) // 当たり判定を察知
@@ -144,22 +125,6 @@ public class Sword : MonoBehaviour
             playerLocalPos += eqipPos;
             //剣の装備後の座標を設定
             transform.localPosition = playerLocalPos;
-
-            col.enabled = false;
         }
-
-
-        if(other.gameObject.tag == "enemy")
-        {
-            hitCount += 1;
-
-            Debug.Log("attack");
-
-            if(hitCount == 3)
-            {
-                Destroy(ene);
-            }
-        }
-
     }
 }

@@ -9,12 +9,15 @@ public class animation : MonoBehaviour
     public string parameterName = "";
     public bool parameterValue = true;
 
+    public bool moveFlag;
+
     bool pushFlag;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         pushFlag = false;
+        moveFlag = false;
     }
 
     // Update is called once per frame
@@ -25,10 +28,12 @@ public class animation : MonoBehaviour
             Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
             animator.SetBool("move", true);
+            moveFlag = true;
         }
         else
         {
             animator.SetBool("move", false);
+            moveFlag = false;
         }
 
         //ジャンプ
@@ -38,7 +43,7 @@ public class animation : MonoBehaviour
         }
 
         //ダッシュ
-        if (Input.GetKey(KeyCode.LeftShift))
+        if ((Input.GetKey(KeyCode.LeftShift)) && (moveFlag == true))
         {
             animator.SetBool("dashBool", true);
         }

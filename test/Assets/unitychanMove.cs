@@ -9,6 +9,9 @@ public class unitychanMove : MonoBehaviour
     Rigidbody myRb;
     //移動速度
     float moveSpeed;
+
+ 
+
     //視点の移動速度
     float rotate = 0;
     //前に進んでいるか
@@ -37,6 +40,7 @@ public class unitychanMove : MonoBehaviour
     void Start()
     {
         moveSpeed = 0.15f;
+
         angle = new Vector3(0, 1.0f, 0);
         myRb = this.GetComponent<Rigidbody>();
 

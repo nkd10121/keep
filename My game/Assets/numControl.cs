@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class numControl : MonoBehaviour
 {
@@ -35,14 +36,32 @@ public class numControl : MonoBehaviour
             {12,'C'},
             {13,'V'},
             {14,'B'},
-
+            {15,'Y'},
+            {16,'U'},
+            {17,'I'},
+            {18,'O'},
+            {19,'P'},
+            {20,'H'},
+            {21,'J'},
+            {22,'K'},
+            {23,'L'},
+            {24,'N'},
+            {25,'M'},
         };
 
-        foreach (char value in dic.Values)
+        int max = 26;
+        char moji = 'a';
+
+        int rand = Random.Range(0, max);
+        for (int i = 0;i < max;i++)
         {
-            Debug.Log("ƒoƒŠƒ…[‚Í" + value + "‚Å‚·B");
+            if (rand == i)
+            {
+                moji = dic[i];
+            }
         }
 
+        Debug.Log(moji);
     }
 
     // Update is called once per frame

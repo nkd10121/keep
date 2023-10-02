@@ -19,38 +19,38 @@ public class numControl : MonoBehaviour
             keyNum[i] = 0;
         }
 
-        var dic = new Dictionary<int, char>()
+        var dic = new Dictionary<int, string>()
         {
-            {0,'Q'},
-            {1,'W'},
-            {2,'E'},
-            {3,'R'},
-            {4,'T'},
-            {5,'A'},
-            {6,'S'},
-            {7,'D'},
-            {8,'F'},
-            {9,'G'},
-            {10,'Z'},
-            {11,'X'},
-            {12,'C'},
-            {13,'V'},
-            {14,'B'},
-            {15,'Y'},
-            {16,'U'},
-            {17,'I'},
-            {18,'O'},
-            {19,'P'},
-            {20,'H'},
-            {21,'J'},
-            {22,'K'},
-            {23,'L'},
-            {24,'N'},
-            {25,'M'},
+            {0,"Q"},
+            {1,"W"},
+            {2,"E"},
+            {3,"R"},
+            {4,"T"},
+            {5,"A"},
+            {6,"S"},
+            {7,"D"},
+            {8,"F"},
+            {9,"G"},
+            {10,"Z"},
+            {11,"X"},
+            {12,"C"},
+            {13,"V"},
+            {14,"B"},
+            {15,"Y"},
+            {16,"U"},
+            {17,"I"},
+            {18,"O"},
+            {19,"P"},
+            {20,"H"},
+            {21,"J"},
+            {22,"K"},
+            {23,"L"},
+            {24,"N"},
+            {25,"M"},
         };
 
         int max = 26;
-        char moji = 'a';
+        string moji = " ";
 
         int rand = Random.Range(0, max);
         for (int i = 0;i < max;i++)
@@ -74,18 +74,29 @@ public class numControl : MonoBehaviour
             {
                 if (Input.GetKeyDown(code))
                 {
-                    if(code == KeyCode.Q)
+                    for(int i = 0;i < max; i++)
                     {
-                        num = 1;
+                        if(code == KeyCode.dic[i])
+                        {
+                            num = i;
+                        }
                     }
-                    else if (code == KeyCode.W)
-                    {
-                        num = 2;
-                    }
-                    else if (code == KeyCode.E)
-                    {
-                        num = 3;
-                    }
+                    //if(code == KeyCode.Q)
+                    //{
+                    //    num = 1;
+                    //}
+                    //else if (code == KeyCode.W)
+                    //{
+                    //    num = 2;
+                    //}
+                    //else if (code == KeyCode.E)
+                    //{
+                    //    num = 3;
+                    //}
+                    //else if (code == KeyCode.dic[3])
+                    //{
+                    //    num = 3;
+                    //}
                     // “ü—Í‚³‚ê‚½ƒL[–¼‚ð•\Ž¦
                     Debug.Log(code.ToString());
 

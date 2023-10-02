@@ -1851,7 +1851,7 @@ ModelImporter:
       name: JUMP00
       takeName: Take 001
       internalID: 0
-      firstFrame: 10.4
+      firstFrame: 12
       lastFrame: 56
       wrapMode: 0
       orientationOffsetY: 0

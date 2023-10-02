@@ -24,6 +24,7 @@ public class animation : MonoBehaviour
     void Update()
     {
         //移動
+        //もし移動キーを押している場合、移動アニメーションをするように
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) ||
             Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
@@ -43,6 +44,7 @@ public class animation : MonoBehaviour
         }
 
         //ダッシュ
+        //移動キーを押しているかつダッシュキーを押しているとき
         if ((Input.GetKey(KeyCode.LeftShift)) && (moveFlag == true))
         {
             animator.SetBool("dashBool", true);

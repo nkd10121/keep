@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\DxLib_VC_3.24b\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+MSVCRTD.lib(exe_winmain.obj) : error LNK2019: 未解決の外部シンボル WinMain が関数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) で参照されました
+C:\Users\fko2347087\Desktop\kawanoT\FirstTest\x64\Debug\FirstTest.exe : fatal error LNK1120: 1 件の未解決の外部参照

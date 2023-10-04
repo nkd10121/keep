@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Program.cs" />
+    <Compile Remove="Qs1_1.cs" />
+    <Compile Remove="Qs1_2.cs" />
+    <Compile Remove="Qs1_3.cs" />
+    <Compile Remove="Qs1_4.cs" />
+    <Compile Remove="Qs2_0.cs" />
+    <Compile Remove="Qs2_1.cs" />
+    <Compile Remove="Qs2_2.cs" />
+    <Compile Remove="Qs2_3.cs" />
+    <Compile Remove="Qs3_0.cs" />
+    <Compile Remove="Qs3_1.cs" />
+    <Compile Remove="Qs3_2.cs" />
+    <Compile Remove="Qs3_3.cs" />
+    <Compile Remove="Qs4_1.cs" />
+    <Compile Remove="Qs4_2.cs" />
+    <Compile Remove="Qs4_3.cs" />
+    <Compile Remove="Qs4_4.cs" />
+    <Compile Remove="Qs_pro.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Program.cs" />
+    <None Include="Qs1_1.cs" />
+    <None Include="Qs1_2.cs" />
+    <None Include="Qs1_3.cs" />
+    <None Include="Qs1_4.cs" />
+    <None Include="Qs2_0.cs" />
+    <None Include="Qs2_1.cs" />
+    <None Include="Qs2_2.cs" />
+    <None Include="Qs2_3.cs" />
+    <None Include="Qs3_0.cs" />
+    <None Include="Qs3_1.cs" />
+    <None Include="Qs3_2.cs" />
+    <None Include="Qs3_3.cs" />
+    <None Include="Qs4_1.cs" />
+    <None Include="Qs4_2.cs" />
+    <None Include="Qs4_3.cs" />
+    <None Include="Qs4_4.cs" />
+    <None Include="Qs_pro.cs" />
+  </ItemGroup>
+
+</Project>

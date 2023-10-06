@@ -1,31 +1,5 @@
+#include "Application.h"
 #include <DxLib.h>
-#include <cassert>
-#include <iostream>
-#include "StringUtility.h"
-
-using namespace std;
-
-//int main()
-//{
-//	int a[] = { 0,1,2,3,4,5,6,7,8,9 };
-//
-//	cout << a[7] << endl;
-//	cout << 7[a] << endl;
-//	cout << *(a + 7) << endl;
-//
-//	constexpr int row = 0;
-//	constexpr int col = 0;
-//
-//	int b[row][col] == int c[row * col]
-//
-//}
-
-//int MyLoadGraph(const wchar_t* path) {
-//	int handle = LoadGraph(path);
-//	assert(handle != -1);
-//	return handle;
-//}
-
 /*ひとりでデバッグできるように*/
 //①ブレークポイント(置いたところで止まる)
 //	条件付きブレークポイント
@@ -84,43 +58,16 @@ using namespace std;
 //
 
 
-//int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
-//{
-	//ChangeWindowMode(true);	//非スクリーン
-	//if (DxLib_Init() == -1) {	//初期化に失敗したらアプリを落とす
-	//	return -1;	//異常終了
-	//}
+int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+{
+	Application& application = Application::GetInstance();
+	if (!application.Init())
+	{
+		return -1;
+	}
+	application.Run();
 
-	//const char* bgPath = ("bg.png");
-	//OutputDebugStringA("bg.png");
 
-	//int bgH = MyLoadGraph(L"./bg.png");
-
-	//実は表示される描画先には2枚のスクリーンがあります
-	//これを高速でフリップ(入れ替え)を行うことで
-	//画面のちらつきを無くしています
-	//SetDrawScreen等の関数はDxLib_Init()の後じゃないと
-	//有効ではないため注意
-	//auto result = SetDrawScreen(DX_SCREEN_BACK);
-
-	//int a = 0;
-
-	//std::string titleStr = "川野";
-
-	//while(ProcessMessage() != -1){
-	//	ClearDrawScreen();
-
-	//	auto wstr = StringUtility::StringToWString(titleStr);
-
-	//	DrawString(50, 50, wstr.c_str(), 0xffffff);
-
-	//	DrawFormatString(50, 50, 0xffffff, L"%s", wstr.c_str());
-
-	//	ScreenFlip();
-
-	//}
-	//DxLib_End();
-
-	//return 0;	//正常終了
-//}
+	return 0;	//正常終了
+}
 

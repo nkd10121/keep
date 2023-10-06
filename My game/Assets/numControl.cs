@@ -9,7 +9,7 @@ public class numControl : MonoBehaviour
     public int num = 0;
 
     int[] keyNum;
-
+    int max = 26;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +49,7 @@ public class numControl : MonoBehaviour
             {25,"M"},
         };
 
-        int max = 26;
+
         string moji = " ";
 
         int rand = Random.Range(0, max);

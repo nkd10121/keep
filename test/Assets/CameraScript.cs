@@ -68,7 +68,7 @@ public class CameraScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             Transform cameraTra = this.transform;
             Vector3 wAngle = cameraTra.eulerAngles;
@@ -80,14 +80,14 @@ public class CameraScript : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            reset = true;
-        }
-        else
-        {
-            reset = false;
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    reset = true;
+        //}
+        //else
+        //{
+        //    reset = false;
+        //}
 
 
     }

@@ -7,11 +7,12 @@
 class Application
 {
 private:
+	//シングルトンのためにprivateに
 	Application() {};
 
 	//コピー＆代入を禁止
-	Application(const Application& app) = delete;
-	void operator=(const Application& app) = delete;
+	Application(const Application& app) = delete;	//コピーコンストラクタの禁止
+	void operator=(const Application& app) = delete;	//代入演算子もついでに廃止
 
 	/// <summary>
 	/// 後処理を行う
@@ -24,7 +25,7 @@ public:
 	/// </summary>
 	/// <returns>Applicationインスタンス</returns>
 	static Application& GetInstance() {
-		static Application instance;
+		static Application instance;	//自分自身の静的オブジェクトを作る
 		return instance;
 	}
 

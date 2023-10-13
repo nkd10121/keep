@@ -9,5 +9,6 @@ void Input::Update()
 
 bool Input::IsTriggered(const char* command) const
 {
+	//KEY_INPUT_RETURN == EnterÉLÅ[
 	return !lastKeyState_[KEY_INPUT_RETURN] && keyState_[KEY_INPUT_RETURN];
 }

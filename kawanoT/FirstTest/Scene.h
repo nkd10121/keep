@@ -9,7 +9,7 @@ class SceneManager;
 class Scene
 {
 protected:
-	SceneManager& manager_;
+	SceneManager& manager_;	//シーン管理クラスの参照
 
 public:
 	/// <summary>
@@ -25,7 +25,7 @@ public:
 	virtual void Update(Input& input) = 0;
 
 	/// <summary>
-	/// 
+	/// シーンの描画
 	/// </summary>
 	virtual void Draw() = 0;
 };

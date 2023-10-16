@@ -1,16 +1,9 @@
 #pragma once
 #include "Vec2.h"
+//#include "Rect.h"
 
 class Slime
 {
-public:
-	//向いている方向
-	enum Dir
-	{
-		kDirLeft,	//左	= 0
-		kDirRight,	//右	= 1
-	};
-
 public:
 	Slime();
 	~Slime();
@@ -19,19 +12,36 @@ public:
 	void Update();
 	void Draw();
 
-	//メンバー変数にアクセスする
-	void SetHandle(int handle) { m_handle = handle; }
-
 private:
-	int m_handle;	//グラフィックのハンドル
+	//移動速度
+	float m_speed;
 
-	//表示位置
-	Vec2 m_pos;
+	//フレーム数
+	int m_frameNum;
 
-	//向いている方向
-	Dir m_dir;
+	//乱数を入れるよう
+	int m_randNum;
+
+	//スライムのハンドル
+	int m_handle;
+	int m_handle0;
+	int m_handle1;
 
 	//歩きアニメーション
 	int m_walkAnimFrame;
-};
 
+	//待機アニメーション
+	int m_walkIdleFrame;
+
+	//移動しているかどうか
+	bool m_isMove;
+
+	//アニメーションの切り替え用
+	int m_srcX;
+	int m_srcY;
+
+	bool m_isRight;
+
+	//表示位置
+	Vec2 m_pos;
+};

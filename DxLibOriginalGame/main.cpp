@@ -1,4 +1,5 @@
 #include "Slime.h"
+#include "Wizard.h"
 #include "DxLib.h"
 
 // プログラムは WinMain から始まります
@@ -17,6 +18,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Slime slime;
 	slime.Init();
 
+	Wizard wiz;
+	wiz.Init();
+
+
 	// ゲームループ
 	while (ProcessMessage() != -1)
 	{
@@ -30,6 +35,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		slime.Update();
 		slime.Draw();
+
+		wiz.Update();
+		wiz.Draw();
+
 
 		// 画面が切り替わるのを待つ
 		ScreenFlip();

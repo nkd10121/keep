@@ -16,8 +16,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	//音楽のハンドル
 	int handle =  LoadSoundMem("musicFile/MusMus-BGM-142.mp3");
+	//音量調整
+	ChangeVolumeSoundMem(255 * 60 / 100, handle);
 	//音楽をバックグラウンドで再生(再生中も処理が動く)
-	PlaySoundMem(handle, DX_PLAYTYPE_BACK, true);
+	//PlaySoundMem(handle, DX_PLAYTYPE_BACK, true);
 
 	Player player;
 
@@ -51,6 +53,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			//16.66ミリ秒(16667マイクロ秒)経過するまで待つ
 		}
 	}
+
+	//DeleteSoundMem(handle);
 
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 

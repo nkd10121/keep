@@ -10,6 +10,11 @@ public:
 	void Draw();
 
 private:
+	int posUp;
+	int posRight;
+	int posLeft;
+	int posDown;
+
 
 };
 

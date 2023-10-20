@@ -1,4 +1,5 @@
 #include "DxLib.h"
+#include "Player.h"
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -15,10 +16,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	//音楽のハンドル
 	int handle =  LoadSoundMem("musicFile/MusMus-BGM-142.mp3");
-
 	//音楽をバックグラウンドで再生(再生中も処理が動く)
 	PlaySoundMem(handle, DX_PLAYTYPE_BACK, true);
 
+	Player player;
 
 	// ゲームループ
 	while (ProcessMessage() != -1)
@@ -32,6 +33,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		//ゲームの処理
 		/*PlaySoundFile("musicFile/MusMus-BGM-142.mp3",
 			DX_PLAYTYPE_NORMAL);*/
+
+		player.Draw();
 
 		// 画面が切り替わるのを待つ
 		ScreenFlip();

@@ -11,6 +11,7 @@ void TitleScene::FadeInUpdate(Input&)
 	if (frame_ <= 0)
 	{
 		//フェードインが終わったら状態を遷移する
+		//次の遷移先
 		updateFunc_ = &TitleScene::NormalUpdate;
 		drawFunc_ = &TitleScene::NormalDraw;
 	}

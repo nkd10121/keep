@@ -57,7 +57,6 @@
 //	
 //
 
-
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	Application& application = Application::GetInstance();
@@ -70,4 +69,3 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	return 0;	//ê≥èÌèIóπ
 }
-

@@ -22,6 +22,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//PlaySoundMem(handle, DX_PLAYTYPE_BACK, true);
 
 	Player player;
+	player.Init();
 
 	// ƒQ[ƒ€ƒ‹[ƒv
 	while (ProcessMessage() != -1)
@@ -36,6 +37,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		/*PlaySoundFile("musicFile/MusMus-BGM-142.mp3",
 			DX_PLAYTYPE_NORMAL);*/
 
+		player.Update();
 		player.Draw();
 
 		// ‰æ–Ê‚ªØ‚è‘Ö‚í‚é‚Ì‚ğ‘Ò‚Â

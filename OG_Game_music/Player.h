@@ -1,4 +1,6 @@
 #pragma once
+#include "Vec2.h"
+
 class Player
 {
 public:
@@ -10,10 +12,7 @@ public:
 	void Draw();
 
 private:
-	int posUp;
-	int posRight;
-	int posLeft;
-	int posDown;
+	Vec2 m_pos;
 
 
 };

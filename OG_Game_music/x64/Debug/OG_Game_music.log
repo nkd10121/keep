@@ -1,3 +1,2 @@
-﻿  Player.cpp
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  OG_Game_music.vcxproj -> C:\Users\PC_User\Desktop\github\keep\OG_Game_music\x64\Debug\OG_Game_music.exe
+﻿  main.cpp
+  OG_Game_music.vcxproj -> C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\x64\Debug\OG_Game_music.exe

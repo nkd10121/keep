@@ -142,6 +142,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="queue.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="Vec2.cpp" />
@@ -149,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="queue.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="Vec2.h" />

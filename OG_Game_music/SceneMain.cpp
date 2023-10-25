@@ -41,7 +41,9 @@ void SceneMain::Update()
 
 	if (playerRect.IsCollision(enemyRect))
 	{
+#ifdef _DEBUG
 		printfDx("hit\n");
+#endif
 	}
 }
 

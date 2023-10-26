@@ -16,12 +16,10 @@ public:
 	void Update();
 	void Draw();
 
-	unsigned int  GetMyColor(unsigned int Color) { return Color = color; }
-
 private:
 	Player* player;
 	Enemy* enemy;
 
-	unsigned int color;
+	unsigned int color = 0x000000;
 };
 

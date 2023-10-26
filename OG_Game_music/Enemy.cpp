@@ -1,6 +1,6 @@
 #include "Enemy.h"
 #include "DxLib.h"
-
+#include "SceneMain.h"
 namespace
 {
 	constexpr int kWidth = 10;
@@ -53,5 +53,5 @@ void Enemy::Update()
 
 void Enemy::Draw()
 {
-	DrawBox(m_pos.x - kWidth,m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight,GetColor(255,255,255),true);
+	DrawBox(m_pos.x - kWidth,m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, 0xffffff,true);
 }

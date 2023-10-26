@@ -4,7 +4,8 @@
 #include "Enemy.h"
 #include "DxLib.h"
 
-SceneMain::SceneMain()
+SceneMain::SceneMain():
+	color(0x000000)
 {
 	//ÉÅÉÇÉäämï€
 	player = new Player;
@@ -43,12 +44,12 @@ void SceneMain::Update()
 	{
 #ifdef _DEBUG
 		printfDx("hit\n");
-		color = GetMyColor(0xff0000);
+		color = 0xff0000;
 #endif
 	}
 	else
 	{
-		color = GetMyColor(0x000000);
+		color = 0x000000;
 	}
 }
 

@@ -1,6 +1,4 @@
-﻿  Player.cpp
-C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\Player.cpp(182,73): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\Player.cpp(182,55): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\Player.cpp(182,36): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\Player.cpp(182,18): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+﻿  SceneMain.cpp
+  main.cpp
+  コードを生成中...
   OG_Game_music.vcxproj -> C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\x64\Debug\OG_Game_music.exe

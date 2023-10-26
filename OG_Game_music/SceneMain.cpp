@@ -43,7 +43,12 @@ void SceneMain::Update()
 	{
 #ifdef _DEBUG
 		printfDx("hit\n");
+		color = GetMyColor(0xff0000);
 #endif
+	}
+	else
+	{
+		color = GetMyColor(0x000000);
 	}
 }
 

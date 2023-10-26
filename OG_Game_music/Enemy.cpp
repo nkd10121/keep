@@ -12,7 +12,8 @@ namespace
 }
 
 Enemy::Enemy():
-	m_pos(kScreenWidth / 2, kScreenHeight / 2)
+	m_pos(kScreenWidth / 2, kScreenHeight / 2),
+	m_color(0)
 {
 
 }

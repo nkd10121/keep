@@ -17,8 +17,8 @@ namespace
 
 }
 
-Player::Player():
-	m_pos(15,15),
+Player::Player() :
+	m_pos(15, 15),
 	posX(0),
 	posY(0),
 	speed(5.0f),
@@ -100,37 +100,6 @@ void Player::Update()
 	m_pos.x += speed * (static_cast<float>(posX) / 700);
 	m_pos.y += speed * (static_cast<float>(posY) / 700);
 
-	//ダッシュ
-	//押している間カウントを増やし続けて
-	//押した瞬間だけダッシュし、離してもう一回押すとダッシュするように
-	if ((pad & PAD_INPUT_1) != 0)
-	{
-		count++;
-	}
-	else
-	{
-		count = 0;
-	}
-	//押した瞬間ダッシュ
-	if (count == 1 && !dashFlag)
-	{
-		speed = 20.0f;
-		dashFlag = true;
-	}
-	//スピードを少しづつ元のスピードに
-	if (speed >= kSpeed)
-	{
-		speed--;
-		if (speed == kSpeed)
-		{
-			dashFlag = false;
-		}
-	}
-
-
-
-
-
 	//止まった時、本家みたいに動かしたい
 	if (!(isMove) && isLogMove)
 	{
@@ -171,6 +140,34 @@ void Player::Update()
 		m_pos.y = 480 - kHeight;
 	}
 
+
+	//ダッシュ
+	//押している間カウントを増やし続けて
+	//押した瞬間だけダッシュし、離してもう一回押すとダッシュするように
+	if ((pad & PAD_INPUT_1) != 0)
+	{
+		count++;
+	}
+	else
+	{
+		count = 0;
+	}
+	//押した瞬間ダッシュ
+	if (count == 1 && !dashFlag)
+	{
+		speed = 20.0f;
+		dashFlag = true;
+	}
+	//スピードを少しづつ元のスピードに
+	if (speed >= kSpeed)
+	{
+		speed--;
+		if (speed == kSpeed)
+		{
+			dashFlag = false;
+		}
+	}
+	//if (dashFlag)return;
 	//当たり判定の更新
 	m_colRect.SetCenter(m_pos.x, m_pos.y, kWidth * 2, kHeight * 2);
 
@@ -183,10 +180,10 @@ void Player::Draw()
 	//DrawCircle(m_pos.x, m_pos.y, 10, GetColor(255, 255, 255), true);
 
 #ifdef _DEBUG
-	DrawFormatString(0,0,GetColor(255,255,255),"X方向の入力 : %d",posX);
-	DrawFormatString(0,16,GetColor(255,255,255),"Y方向の入力 : %d",posY);
-	DrawFormatString(0,32,GetColor(255,255,255),"Xpos : %f",m_pos.x);
-	DrawFormatString(0,48,GetColor(255,255,255),"Ypos : %f",m_pos.y);
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "X方向の入力 : %d", posX);
+	DrawFormatString(0, 16, GetColor(255, 255, 255), "Y方向の入力 : %d", posY);
+	DrawFormatString(0, 32, GetColor(255, 255, 255), "Xpos : %f", m_pos.x);
+	DrawFormatString(0, 48, GetColor(255, 255, 255), "Ypos : %f", m_pos.y);
 
 	m_colRect.Draw(GetColor(255, 0, 0), false);
 #endif

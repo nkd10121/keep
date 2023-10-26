@@ -1,4 +1,0 @@
-﻿  TitleScene.cpp
-C:\DxLib_VC_3.24b\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347087\Desktop\gitHub\keep\kawanoT\FirstTest\TitleScene.cpp(47,12): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  FirstTest.vcxproj -> C:\Users\fko2347087\Desktop\gitHub\keep\kawanoT\FirstTest\x64\Debug\FirstTest.exe

@@ -1,3 +1,0 @@
-﻿  main.cpp
-C:\Users\fko2347087\Desktop\kawanoT\20230927\main.cpp(43,6): warning C4101: 'b': ローカル変数は 1 度も使われていません。
-  20230927.vcxproj -> C:\Users\fko2347087\Desktop\kawanoT\20230927\x64\Debug\20230927.exe

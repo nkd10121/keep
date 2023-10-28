@@ -1,9 +1,3 @@
-﻿  Enemy.cpp
-C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\Enemy.cpp(56,72): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\Enemy.cpp(56,54): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\Enemy.cpp(56,35): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\Enemy.cpp(56,18): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  SceneMain.cpp
-  main.cpp
-  コードを生成中...
-  OG_Game_music.vcxproj -> C:\Users\fko2347087\Desktop\gitHub\keep\OG_Game_music\x64\Debug\OG_Game_music.exe
+﻿  SceneMain.cpp
+C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+  OG_Game_music.vcxproj -> C:\Users\nakad\OneDrive\デスクトップ\github\keep\OG_Game_music\x64\Debug\OG_Game_music.exe

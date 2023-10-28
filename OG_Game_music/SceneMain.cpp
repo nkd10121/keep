@@ -4,12 +4,13 @@
 #include "Enemy.h"
 #include "DxLib.h"
 
-SceneMain::SceneMain():
-	color(0x000000)
+SceneMain::SceneMain()
 {
 	//ƒƒ‚ƒŠŠm•Û
 	player = new Player;
 	enemy = new Enemy;
+
+	color = (0xffffff);
 }
 
 SceneMain::~SceneMain()
@@ -43,14 +44,19 @@ void SceneMain::Update()
 	if (playerRect.IsCollision(enemyRect))
 	{
 #ifdef _DEBUG
-		printfDx("hit\n");
-		color = 0xff0000;
+		//printfDx("hit\n");
+		color = (0xff0000);
 #endif
 	}
 	else
 	{
-		color = 0x000000;
+#ifdef _DEBUG
+		color = (0xffffff);
+#endif
 	}
+
+	enemy->SetColor(color);
+
 }
 
 void SceneMain::Draw()

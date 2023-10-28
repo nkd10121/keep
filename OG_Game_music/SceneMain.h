@@ -10,6 +10,7 @@ public:
 	SceneMain();
 	virtual ~SceneMain();
 
+
 	void Init();
 	void End();
 
@@ -20,6 +21,6 @@ private:
 	Player* player;
 	Enemy* enemy;
 
-	unsigned int color = 0x000000;
+	unsigned int color;
 };
 

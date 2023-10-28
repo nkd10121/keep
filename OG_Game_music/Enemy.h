@@ -2,7 +2,6 @@
 #include "Vec2.h"
 #include "Rect.h"
 
-class SceneMain;
 
 class Enemy
 {
@@ -17,8 +16,8 @@ public:
 	//“G‚Ì“–‚½‚è”»’è‚ðŽæ“¾‚·‚é
 	Rect GetColRect() const { return m_colRect; }
 
+	void SetColor(unsigned int color) { m_color = color; }
 private:
-	SceneMain* m_main;
 
 	Vec2 m_pos;
 

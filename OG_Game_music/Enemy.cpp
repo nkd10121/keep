@@ -12,8 +12,7 @@ namespace
 }
 
 Enemy::Enemy():
-	m_pos(kScreenWidth / 2, kScreenHeight / 2),
-	m_color(0)
+	m_pos(kScreenWidth / 2, kScreenHeight / 2)
 {
 
 }
@@ -25,7 +24,8 @@ Enemy::~Enemy()
 
 void Enemy::Init()
 {
-
+	m_pos.x = static_cast<int>(m_pos.x);
+	m_pos.y = static_cast<int>(m_pos.y);
 }
 
 void Enemy::Update()
@@ -53,5 +53,5 @@ void Enemy::Update()
 
 void Enemy::Draw()
 {
-	DrawBox(m_pos.x - kWidth,m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, 0xffffff,true);
+	DrawBox(m_pos.x - kWidth,m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, m_color,true);
 }

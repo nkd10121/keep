@@ -139,20 +139,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Scene\GamePlayingScene.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Scene\PauseScene.cpp" />
+    <ClCompile Include="Scene\Player.cpp" />
     <ClCompile Include="queue.cpp" />
     <ClCompile Include="Rect.cpp" />
-    <ClCompile Include="SceneMain.cpp" />
+    <ClCompile Include="Scene\Scene.cpp" />
+    <ClCompile Include="Scene\SceneManager.cpp" />
+    <ClCompile Include="Scene\StageSelect.cpp" />
+    <ClCompile Include="Scene\TitleScene.cpp" />
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="Scene\GamePlayingScene.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Scene\PauseScene.h" />
+    <ClInclude Include="Scene\Player.h" />
     <ClInclude Include="queue.h" />
     <ClInclude Include="Rect.h" />
-    <ClInclude Include="SceneMain.h" />
+    <ClInclude Include="Scene\Scene.h" />
+    <ClInclude Include="Scene\SceneManager.h" />
+    <ClInclude Include="Scene\StageSelect.h" />
+    <ClInclude Include="Scene\TitleScene.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

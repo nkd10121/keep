@@ -1,6 +1,6 @@
 #include "Enemy.h"
 #include "DxLib.h"
-#include "SceneMain.h"
+
 namespace
 {
 	constexpr int kWidth = 10;

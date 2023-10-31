@@ -49,52 +49,43 @@ void Player::Update(Input& input)
 	bool isMove = false;	//移動しているかどうか
 	bool isLogMove = false;
 
-	////Wキー
-	////if ((pad & PAD_INPUT_8) != 0)
+	//Wキー
+	if ((pad & PAD_INPUT_8) != 0)
 	//if ((pad & PAD_INPUT_UP) != 0)
-	//{
-	//	//スペースキーを押したときダッシュ
-	//	if ((pad & PAD_INPUT_10) != 0)
-	//	{
-	//		move.y -= kDashSpeed;
-	//	}
-	//	else
-	//	{
-	//		move.y -= kSpeed;
-	//	}
-	//	//m_dir = kDirUp;
-	//	isMove = true;
-	//}
+	{
+		move.y -= kSpeed;
+		//m_dir = kDirDown;
+		isMove = true;
+	}
 
-	////Sキー
-	////if ((pad & PAD_INPUT_5) != 0)
+	//Sキー
+	if ((pad & PAD_INPUT_5) != 0)
 	//if ((pad & PAD_INPUT_DOWN) != 0)
-	//{
+	{
+		move.y += kSpeed;
+		//m_dir = kDirDown;
+		isMove = true;
+	}
 
-	//	move.y += kSpeed;
-	//	//m_dir = kDirDown;
-	//	isMove = true;
-	//}
-
-	////Aキー
-	////if ((pad & PAD_INPUT_4) != 0)
+	//Aキー
+	if ((pad & PAD_INPUT_4) != 0)
 	//if ((pad & PAD_INPUT_LEFT) != 0)
-	//{
-	//	//m_pos.x -= kSpeed;
-	//	move.x -= kSpeed;
-	//	//m_dir = kDirLeft;
-	//	isMove = true;
-	//}
+	{
+		//m_pos.x -= kSpeed;
+		move.x -= kSpeed;
+		//m_dir = kDirLeft;
+		isMove = true;
+	}
 
-	////Dキー
-	////if ((pad & PAD_INPUT_6) != 0)
+	//Dキー
+	if ((pad & PAD_INPUT_6) != 0)
 	//if ((pad & PAD_INPUT_RIGHT) != 0)
-	//{
-	//	//m_pos.x += kSpeed;
-	//	move.x += kSpeed;
-	//	//m_dir = kDirRight;
-	//	isMove = true;
-	//}
+	{
+		//m_pos.x += kSpeed;
+		move.x += kSpeed;
+		//m_dir = kDirRight;
+		isMove = true;
+	}
 
 	//PADでの操作
 	GetJoypadAnalogInput(&posX, &posY, DX_INPUT_KEY_PAD1);

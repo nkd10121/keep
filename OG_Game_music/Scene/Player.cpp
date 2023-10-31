@@ -5,8 +5,8 @@
 namespace
 {
 	//移動速度
-	constexpr float kSpeed = 5.0f;
-	constexpr float kDashSpeed = 12.0f;
+	constexpr float kSpeed = 2.0f;
+	constexpr float kDashSpeed = 14.0f;
 
 	//キャラクターのサイズ
 	constexpr int kWidth = 8;
@@ -21,21 +21,24 @@ namespace
 Player::Player() :
 	m_pos(15, 15),
 	m_colPos(0,0),
-	posX(0),
-	posY(0),
-	speed(5.0f),
-	count(0),
-	dashFlag(false),
-	dashLog(false)
+	m_posX(0),
+	m_posY(0),
+	m_speed(3.0f),
+	m_count(0),
+	m_isDash(false),
+	m_dashLog(false)
 {
+
 }
 
 Player::~Player()
 {
+
 }
 
 void Player::Init()
 {
+
 }
 
 void Player::Update(Input& input)
@@ -50,8 +53,8 @@ void Player::Update(Input& input)
 	bool isLogMove = false;
 
 	//Wキー
-	if ((pad & PAD_INPUT_8) != 0)
-	//if ((pad & PAD_INPUT_UP) != 0)
+	//if ((pad & PAD_INPUT_8) != 0)
+	if (input.IsPushed("UP"))
 	{
 		move.y -= kSpeed;
 		//m_dir = kDirDown;
@@ -59,8 +62,8 @@ void Player::Update(Input& input)
 	}
 
 	//Sキー
-	if ((pad & PAD_INPUT_5) != 0)
-	//if ((pad & PAD_INPUT_DOWN) != 0)
+	//if ((pad & PAD_INPUT_5) != 0)
+	if (input.IsPushed("DOWN"))
 	{
 		move.y += kSpeed;
 		//m_dir = kDirDown;
@@ -68,8 +71,8 @@ void Player::Update(Input& input)
 	}
 
 	//Aキー
-	if ((pad & PAD_INPUT_4) != 0)
-	//if ((pad & PAD_INPUT_LEFT) != 0)
+	//if ((pad & PAD_INPUT_4) != 0)
+	if (input.IsPushed("LEFT"))
 	{
 		//m_pos.x -= kSpeed;
 		move.x -= kSpeed;
@@ -78,8 +81,8 @@ void Player::Update(Input& input)
 	}
 
 	//Dキー
-	if ((pad & PAD_INPUT_6) != 0)
-	//if ((pad & PAD_INPUT_RIGHT) != 0)
+	//if ((pad & PAD_INPUT_6) != 0)
+	if (input.IsPushed("RIGHT"))
 	{
 		//m_pos.x += kSpeed;
 		move.x += kSpeed;
@@ -88,9 +91,9 @@ void Player::Update(Input& input)
 	}
 
 	//PADでの操作
-	GetJoypadAnalogInput(&posX, &posY, DX_INPUT_KEY_PAD1);
-	m_pos.x += speed * (static_cast<float>(posX) / 700);
-	m_pos.y += speed * (static_cast<float>(posY) / 700);
+	GetJoypadAnalogInput(&m_posX, &m_posY, DX_INPUT_KEY_PAD1);
+	m_pos.x += m_speed * (static_cast<float>(m_posX) / 700);
+	m_pos.y += m_speed * (static_cast<float>(m_posY) / 700);
 
 	//止まった時、本家みたいに動かしたい
 	if (!(isMove) && isLogMove)
@@ -110,8 +113,6 @@ void Player::Update(Input& input)
 
 	//座標とベクトルの足し算
 	m_pos += move;
-
-
 
 
 	//画面外に出ないように
@@ -136,31 +137,31 @@ void Player::Update(Input& input)
 	//ダッシュ
 	//押している間カウントを増やし続けて
 	//押した瞬間だけダッシュし、離してもう一回押すとダッシュするように
-	if(input.IsTriggered("dash"))
+	if(input.IsPushed("dash"))
 	{
-		count++;
+		m_count++;
 	}
 	else
 	{
-		count = 0;
+		m_count = 0;
 	}
 	//押した瞬間ダッシュ
-	if (count == 1 && !dashFlag)
+	if (m_count == 1 && !m_isDash)
 	{
-		speed = 20.0f;
-		dashFlag = true;
+		m_speed = kDashSpeed;
+		m_isDash = true;
 	}
 	//スピードを少しづつ元のスピードに
-	if (speed >= kSpeed)
+	if (m_speed >= kSpeed)
 	{
-		speed--;
-		if (speed == kSpeed)
+		m_speed--;
+		if (m_speed <= kSpeed)
 		{
-			dashFlag = false;
+			m_isDash = false;
 		}
 	}
 	//当たり判定の更新
-	if (dashFlag)
+	if (m_isDash)
 	{
 		m_colPos = {-30,-30};
 	}
@@ -180,8 +181,8 @@ void Player::Draw()
 	//DrawCircle(m_pos.x, m_pos.y, 10, GetColor(255, 255, 255), true);
 
 #ifdef _DEBUG
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "X方向の入力 : %d", posX);
-	DrawFormatString(0, 16, GetColor(255, 255, 255), "Y方向の入力 : %d", posY);
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "X方向の入力 : %d", m_posX);
+	DrawFormatString(0, 16, GetColor(255, 255, 255), "Y方向の入力 : %d", m_posY);
 	DrawFormatString(0, 32, GetColor(255, 255, 255), "Xpos : %f", m_pos.x);
 	DrawFormatString(0, 48, GetColor(255, 255, 255), "Ypos : %f", m_pos.y);
 

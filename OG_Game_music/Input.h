@@ -32,5 +32,13 @@ public:
 	/// <param name="command">コマンド文字列</param>
 	/// <returns> true : 押された瞬間, false : 押されていないか、押しっぱ</returns>
 	bool IsTriggered(const char* command)const;
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="command"></param>
+	/// <returns></returns>
+	bool IsPushed(const char* command)const;
+
 };
 

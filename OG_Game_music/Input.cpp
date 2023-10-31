@@ -14,6 +14,18 @@ Input::Input()
 
 	commandTable["dash"] = { {InputType::KeyBoard, KEY_INPUT_SPACE},
 								{InputType::Pad, PAD_INPUT_Y} };
+
+	commandTable["UP"] = { {InputType::KeyBoard, KEY_INPUT_W},
+								{InputType::Pad, PAD_INPUT_UP} };
+
+	commandTable["RIGHT"] = { {InputType::KeyBoard, KEY_INPUT_D},
+								{InputType::Pad, PAD_INPUT_RIGHT} };
+
+	commandTable["DOWN"] = { {InputType::KeyBoard, KEY_INPUT_S},
+								{InputType::Pad, PAD_INPUT_DOWN} };
+
+	commandTable["LEFT"] = { {InputType::KeyBoard, KEY_INPUT_A},
+								{InputType::Pad, PAD_INPUT_LEFT} };
 }
 
 void Input::Update()
@@ -72,5 +84,14 @@ bool Input::IsTriggered(const char* command) const
 		return false;
 	}
 	return (inputData_.at(command) && !lastInputData_.at(command));
+}
 
+bool Input::IsPushed(const char* command) const
+{
+	auto it = inputData_.find(command);
+	if (it == inputData_.end())	//èÓïÒÇ™Ç»ÇØÇÍÇŒfalseÇï‘Ç∑
+	{
+		return false;
+	}
+	return (inputData_.at(command)&& lastInputData_.at(command));
 }

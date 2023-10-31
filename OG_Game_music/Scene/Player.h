@@ -24,15 +24,15 @@ private:
 	//“–‚½‚è”»’è—p‚Ì‹éŒ`
 	Rect m_colRect;
 
-	int posX;
-	int posY;
+	int m_posX;
+	int m_posY;
 
-	float speed;
+	float m_speed;
 
-	int count;
+	int m_count;
 
-	bool dashFlag;
-	bool dashLog;
+	bool m_isDash;
+	bool m_dashLog;
 
 };
 

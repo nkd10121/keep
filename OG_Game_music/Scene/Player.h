@@ -24,8 +24,8 @@ private:
 	//“–‚½‚è”»’è—p‚Ì‹éŒ`
 	Rect m_colRect;
 
-	int m_posX;
-	int m_posY;
+	int m_padStickX;
+	int m_padStickY;
 
 	float m_speed;
 

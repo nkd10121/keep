@@ -54,10 +54,6 @@ void Input::Update()
 					input = true;
 					break;
 				}
-				else
-				{
-					input = false;
-				}
 			}
 			else if (hardIO.first == InputType::Pad)
 			{
@@ -66,11 +62,6 @@ void Input::Update()
 					input = true;
 					break;
 				}
-				else
-				{
-					input = false;
-				}
-
 			}
 		}
 	}

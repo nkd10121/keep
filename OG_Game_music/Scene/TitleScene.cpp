@@ -41,6 +41,8 @@ void TitleScene::FadeOutUpdate(Input&)
 void TitleScene::FadeDraw()
 {
 	//通常の描画
+	DrawBox(30, 20, 130, 60, 0xffffff, false);
+	DrawString(45, 30, "Play", 0xffffff);
 	DrawString(100, 100, "TitleScene", 0xffffff);
 
 	//フェード暗幕
@@ -52,6 +54,8 @@ void TitleScene::FadeDraw()
 
 void TitleScene::NormalDraw()
 {
+	DrawBox(30, 20, 130, 60, 0xffffff, false);
+	DrawString(45, 30, "Play", 0xffffff);
 	DrawString(100, 100, "TitleScene", 0xffffff);
 }
 

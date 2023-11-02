@@ -55,11 +55,12 @@ void Player::Update(Input& input)
 	//padのスティック情報を取得
 	GetJoypadAnalogInput(&m_padStickX, &m_padStickY, DX_INPUT_KEY_PAD1);
 
+#ifdef false
 	//Wキー
 	//if ((pad & PAD_INPUT_8) != 0)
 	if (input.IsPushed("UP"))
 	{
-		move.y -= m_speed;
+		move.y = m_padStickY;
 		//move.y += m_speed * (m_padStickY * 0.00002);
 		isMove = true;
 	}
@@ -68,7 +69,7 @@ void Player::Update(Input& input)
 	//if ((pad & PAD_INPUT_5) != 0)
 	if (input.IsPushed("DOWN"))
 	{
-		move.y += m_speed;
+		move.y = m_padStickY;
 		//move.y += m_speed * (m_padStickY * 0.00002);
 		isMove = true;
 	}
@@ -90,11 +91,11 @@ void Player::Update(Input& input)
 		//move.x += m_speed * (m_padStickX * 0.00002);
 		isMove = true;
 	}
+#endif
 
 	////PADでの操作
-	//m_pos.x += m_speed * (static_cast<float>(m_posX) / 700);
-	//m_pos.y += m_speed * (static_cast<float>(m_posY) / 700);
-
+	m_pos.x += m_speed * (static_cast<float>(m_padStickX) / 700);
+	m_pos.y += m_speed * (static_cast<float>(m_padStickY) / 700);
 
 	//止まった時、本家みたいに動かしたい
 	if (!(isMove) && isLogMove)
@@ -110,11 +111,10 @@ void Player::Update(Input& input)
 	move.normalize();
 
 	//ベクトルの長さをkspeedにする
-	move *= m_speed;
+	move *= kBaseSpeed;
 
 	//座標とベクトルの足し算
 	m_pos += move;
-
 
 	//画面外に出ないように
 	if (m_pos.x + kWidth >= kScreenWidth)
@@ -184,6 +184,7 @@ void Player::Draw()
 #ifdef _DEBUG
 	DrawFormatString(0, 0, GetColor(255, 255, 255), "X方向の入力 : %d", m_padStickX);
 	DrawFormatString(0, 16, GetColor(255, 255, 255), "Y方向の入力 : %d", m_padStickY);
+
 	//DrawFormatString(0, 0, GetColor(255, 255, 255), "m_speed : %f", m_speed);
 	DrawFormatString(0, 32, GetColor(255, 255, 255), "Xpos : %f", m_pos.x);
 	DrawFormatString(0, 48, GetColor(255, 255, 255), "Ypos : %f", m_pos.y);

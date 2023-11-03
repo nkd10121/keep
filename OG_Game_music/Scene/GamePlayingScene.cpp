@@ -45,7 +45,7 @@ void GamePlayingScene::FadeOutUpdate(Input& input)
 void GamePlayingScene::FadeDraw()
 {
 	//í èÌÇÃï`âÊ
-	DrawString(100, 100, "GamePlayingScene", 0xffffff);
+	//DrawString(100, 100, "GamePlayingScene", 0xffffff);
 
 	int alpha = 255 * static_cast<float>(frame_) / 60.0f;
 	SetDrawBlendMode(DX_BLENDMODE_MULA, alpha);
@@ -55,8 +55,8 @@ void GamePlayingScene::FadeDraw()
 
 void GamePlayingScene::NormalDraw()
 {
-	DrawString(100, 100, "GamePlayingScene", 0xffffff);
-	DrawFormatString(10, 10, 0xffffff, "fps=%2.2f", fps);
+	//DrawString(100, 100, "GamePlayingScene", 0xffffff);
+	//DrawFormatString(10, 10, 0xffffff, "fps=%2.2f", fps);
 }
 
 GamePlayingScene::GamePlayingScene(SceneManager& mgr) :

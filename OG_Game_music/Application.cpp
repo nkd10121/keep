@@ -24,7 +24,7 @@ bool Application::Init()
 	ChangeWindowMode(true);	//非スクリーン
 	SetGraphMode(windowSize_.w, windowSize_.h, 32);
 	//ウィンドウ名を変更
-	SetWindowText("ごっついアクションゲーム");
+	SetWindowText("JustShapes&beats");
 	if (DxLib_Init() == -1) {	//初期化に失敗したらアプリを落とす
 		return false;	//異常終了
 	}

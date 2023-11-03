@@ -19,7 +19,18 @@ void TitleScene::FadeInUpdate(Input&)
 
 void TitleScene::NormalUpdate(Input& input)
 {
-	if (input.IsTriggered("OK"))
+	if (input.IsTriggered("UP") && cursolPosY > 35)
+	{
+		cursolPosY -= 60;
+	}
+
+	if (input.IsTriggered("DOWN") && cursolPosY < 35 * 3)
+	{
+		cursolPosY += 60;
+	}
+
+
+	if (input.IsTriggered("OK") && cursolPosY == 35)
 	{
 		//もしEnterキーが押されたらフェードインを始める
 		updateFunc_ = &TitleScene::FadeOutUpdate;
@@ -40,10 +51,22 @@ void TitleScene::FadeOutUpdate(Input&)
 
 void TitleScene::FadeDraw()
 {
-	//通常の描画
-	DrawBox(30, 20, 130, 60, 0xffffff, false);
-	DrawString(45, 30, "Play", 0xffffff);
-	DrawString(100, 100, "TitleScene", 0xffffff);
+	//通常の描画(NormalDrawに書いたものをコピペする)
+	DrawBox(50, 40, 160, 80, 0xffffff, false);
+	DrawString(88, 52, "Play", 0xffffff);
+
+	DrawBox(50, 100, 160, 140, 0xffffff, false);
+	DrawString(80, 112, "Option", 0xffffff);
+
+	DrawBox(50, 160, 160, 200, 0xffffff, false);
+	DrawString(88, 172, "Quit", 0xffffff);
+
+	//カーソル
+	DrawBox(cursolPosX, cursolPosY, cursolPosX + 120, cursolPosY + 50, 0xff0000, false);
+
+#ifdef _DEBUG
+	DrawString(0, 0, "TitleScene", 0xffffff);
+#endif
 
 	//フェード暗幕
 	int alpha = 255 * (float)frame_ / 60.0f;
@@ -54,13 +77,30 @@ void TitleScene::FadeDraw()
 
 void TitleScene::NormalDraw()
 {
-	DrawBox(30, 20, 130, 60, 0xffffff, false);
-	DrawString(45, 30, "Play", 0xffffff);
-	DrawString(100, 100, "TitleScene", 0xffffff);
+	//Playボタン
+	DrawBox(50, 40, 160, 80, 0xffffff, false);
+	DrawString(88, 52, "Play", 0xffffff);
+
+	//Optionボタン
+	DrawBox(50, 100, 160, 140, 0xffffff, false);
+	DrawString(80, 112, "Option", 0xffffff);
+	
+	//Quitボタン
+	DrawBox(50, 160, 160, 200, 0xffffff, false);
+	DrawString(88, 172, "Quit", 0xffffff);
+
+	//カーソル
+	DrawBox(cursolPosX, cursolPosY, cursolPosX + 120, cursolPosY + 50, 0xff0000, false);
+
+#ifdef _DEBUG
+	DrawString(0, 0, "TitleScene", 0xffffff);
+#endif
 }
 
 TitleScene::TitleScene(SceneManager& manager) :
-	Scene(manager)
+	Scene(manager),
+	cursolPosX(45),
+	cursolPosY(35)
 {
 	frame_ = 60;
 	updateFunc_ = &TitleScene::FadeInUpdate;

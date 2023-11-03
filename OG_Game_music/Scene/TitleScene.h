@@ -7,6 +7,9 @@
 class TitleScene : public Scene
 {
 private:
+	int cursolPosX;
+	int cursolPosY;
+
 	int frame_ = 0;
 	//更新メンバ関数ポインタ
 	void (TitleScene::* updateFunc_)(Input& input);

@@ -5,7 +5,7 @@
 namespace
 {
 	//移動速度
-	constexpr float kBaseSpeed = 4.0f;
+	constexpr float kBaseSpeed = 3.0f;
 	constexpr float kDashSpeed = 16.0f;
 
 	//キャラクターのサイズ
@@ -23,7 +23,7 @@ Player::Player() :
 	m_colPos(0,0),
 	m_padStickX(0),
 	m_padStickY(0),
-	m_speed(4.0f),
+	m_speed(kBaseSpeed),
 	m_count(0),
 	m_isDash(false),
 	m_dashLog(false)

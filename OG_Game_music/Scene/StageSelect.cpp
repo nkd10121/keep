@@ -1,5 +1,6 @@
 #include "StageSelect.h"
 #include "../Input.h"
+#include "TitleScene.h"
 #include "GamePlayingScene.h"
 #include "SceneManager.h"
 #include <DxLib.h>
@@ -16,6 +17,16 @@ void StageSelect::FadeInUpdate(Input& input)
 
 void StageSelect::NormalUpdate(Input& input)
 {
+	if (input.IsTriggered("UP") && cursolPosY > 35)
+	{
+		cursolPosY -= 60;
+	}
+
+	if (input.IsTriggered("DOWN") && cursolPosY < 35 * 2)
+	{
+		cursolPosY += 60;
+	}
+
 	if (input.IsTriggered("OK"))
 	{
 		updateFunc_ = &StageSelect::FadeOutUpdate;
@@ -28,14 +39,32 @@ void StageSelect::FadeOutUpdate(Input& input)
 	frame_++;
 	if (frame_ >= 60)
 	{
-		manager_.ChangeScene(std::make_shared<GamePlayingScene>(manager_));
+		if (cursolPosY == 35)
+		{
+			manager_.ChangeScene(std::make_shared<GamePlayingScene>(manager_));
+		}
+		else if (cursolPosY == 95)
+		{
+			manager_.ChangeScene(std::make_shared<TitleScene>(manager_));
+		}
 	}
 }
 
 void StageSelect::FadeDraw()
 {
 	//通常の描画
-	DrawString(100, 100, "StageSelectScene", 0xffffff);
+	//playボタン
+	DrawBox(50, 40, 160, 80, 0xffffff, false);
+	DrawString(84, 52, "stge1", 0xffffff);
+
+	//Quitボタン
+	DrawBox(50, 100, 160, 140, 0xffffff, false);
+	DrawString(80, 112, "return", 0xffffff);
+
+	//カーソル
+	DrawBox(cursolPosX, cursolPosY, cursolPosX + 120, cursolPosY + 50, 0xff0000, false);
+
+	DrawString(0, 0, "StageSelectScene", 0xffffff);
 
 
 	int alpha = 255 * static_cast<float>(frame_) / 60.0f;
@@ -46,10 +75,25 @@ void StageSelect::FadeDraw()
 
 void StageSelect::NormalDraw()
 {
-	DrawString(100, 100, "StageSelectScene", 0xffffff);
+	//playボタン
+	DrawBox(50, 40, 160, 80, 0xffffff, false);
+	DrawString(84, 52, "stge1", 0xffffff);
+
+	//Quitボタン
+	DrawBox(50, 100, 160, 140, 0xffffff, false);
+	DrawString(80, 112, "return", 0xffffff);
+
+	//カーソル
+	DrawBox(cursolPosX, cursolPosY, cursolPosX + 120, cursolPosY + 50, 0xff0000, false);
+
+
+	DrawString(0, 0, "StageSelectScene", 0xffffff);
 }
 
-StageSelect::StageSelect(SceneManager& mgr) : Scene(mgr)
+StageSelect::StageSelect(SceneManager& mgr) : 
+	Scene(mgr),
+	cursolPosX(45),
+	cursolPosY(35)
 {
 	updateFunc_ = &StageSelect::FadeInUpdate;
 	drawFunc_ = &StageSelect::FadeDraw;

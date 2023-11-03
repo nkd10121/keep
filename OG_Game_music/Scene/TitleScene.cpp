@@ -37,6 +37,10 @@ void TitleScene::NormalUpdate(Input& input)
 		drawFunc_ = &TitleScene::FadeDraw;
 		frame_ = 0;
 	}
+	else if (input.IsTriggered("OK") && cursolPosY == 155)
+	{
+		DxLib_End();
+	}
 }
 
 void TitleScene::FadeOutUpdate(Input&)
@@ -45,7 +49,11 @@ void TitleScene::FadeOutUpdate(Input&)
 	if (frame_ >= 60)
 	{
 		//フェードアウトが終わったらSceneを変える
-		manager_.ChangeScene(std::make_shared<StageSelect>(manager_));
+		if (cursolPosY == 35)
+		{
+			manager_.ChangeScene(std::make_shared<StageSelect>(manager_));
+		}
+
 	}
 }
 

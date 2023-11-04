@@ -1,9 +1,9 @@
 #include <DxLib.h>
-
 #include "../Input.h"
 #include "SceneManager.h"
 #include "TitleScene.h"
 #include "StageSelect.h"
+#include "OptionScene.h"
 
 void TitleScene::FadeInUpdate(Input&)
 {
@@ -30,16 +30,23 @@ void TitleScene::NormalUpdate(Input& input)
 	}
 
 
-	if (input.IsTriggered("OK") && cursolPosY == 35)
+	if (input.IsTriggered("OK") && cursolPosY == 155)
+	{
+		DxLib_End();
+	}
+	else if (input.IsTriggered("OK") && cursolPosY == 35)
 	{
 		//もしEnterキーが押されたらフェードインを始める
 		updateFunc_ = &TitleScene::FadeOutUpdate;
 		drawFunc_ = &TitleScene::FadeDraw;
 		frame_ = 0;
 	}
-	else if (input.IsTriggered("OK") && cursolPosY == 155)
+	else if (input.IsTriggered("OK") && cursolPosY == 95)
 	{
-		DxLib_End();
+		//もしEnterキーが押されたらフェードインを始める
+		updateFunc_ = &TitleScene::FadeOutUpdate;
+		drawFunc_ = &TitleScene::FadeDraw;
+		frame_ = 0;
 	}
 }
 
@@ -52,6 +59,10 @@ void TitleScene::FadeOutUpdate(Input&)
 		if (cursolPosY == 35)
 		{
 			manager_.ChangeScene(std::make_shared<StageSelect>(manager_));
+		}
+		if (cursolPosY == 95)
+		{
+			manager_.ChangeScene(std::make_shared<OptionScene>(manager_));
 		}
 
 	}

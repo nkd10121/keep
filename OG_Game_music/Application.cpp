@@ -40,6 +40,8 @@ void Application::Run()
 	Input input;
 
 	while (ProcessMessage() != -1) {
+		LONGLONG time = GetNowHiPerformanceCount();
+
 		ClearDrawScreen();
 
 		input.Update();
@@ -47,6 +49,8 @@ void Application::Run()
 		manager.Draw();
 
 		ScreenFlip();
+
+		while (GetNowHiPerformanceCount() - time < 16667);
 	}
 
 	Terminate();

@@ -17,6 +17,8 @@ public:
 	//プレイヤーの当たり判定を取得する
 	Rect GetColRect() const { return m_colRect; }
 
+	int SetKnockBackSpeed(int speed) { return knockBackSpeed = speed; }
+
 private:
 	Vec2 m_pos;
 	Vec2 m_colPos;
@@ -24,15 +26,21 @@ private:
 	//当たり判定用の矩形
 	Rect m_colRect;
 
+	//Padのスティックを傾けた向きと大きさを入れるよう
 	int m_padStickX;
 	int m_padStickY;
 
+	//プレイヤーのスピード
 	float m_speed;
 
-	int m_count;
-
+	//ダッシュを押したときのカウント
+	int m_dashCount;
+	//ダッシュしているか
 	bool m_isDash;
+	//長押しかどうか判定するよう
 	bool m_dashLog;
 
+	//ノックバックした時のスピード
+	int knockBackSpeed;
 };
 

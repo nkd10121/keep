@@ -24,9 +24,10 @@ Player::Player() :
 	m_padStickX(0),
 	m_padStickY(0),
 	m_speed(kBaseSpeed),
-	m_count(0),
+	m_dashCount(0),
 	m_isDash(false),
-	m_dashLog(false)
+	m_dashLog(false),
+	knockBackSpeed(0)
 {
 
 }
@@ -94,8 +95,13 @@ void Player::Update(Input& input)
 #endif
 
 	////PADでの操作
-	m_pos.x += m_speed * (static_cast<float>(m_padStickX) / 700);
+	m_pos.x += m_speed * (static_cast<float>(m_padStickX) / 700) - knockBackSpeed;
 	m_pos.y += m_speed * (static_cast<float>(m_padStickY) / 700);
+
+	if (knockBackSpeed != 0)
+	{
+		knockBackSpeed--;
+	}
 
 	//止まった時、本家みたいに動かしたい
 	if (!(isMove) && isLogMove)
@@ -140,14 +146,14 @@ void Player::Update(Input& input)
 	//押した瞬間だけダッシュし、離してもう一回押すとダッシュするように
 	if(input.IsPushed("dash"))
 	{
-		m_count++;
+		m_dashCount++;
 	}
 	else
 	{
-		m_count = 0;
+		m_dashCount = 0;
 	}
 	//押した瞬間ダッシュ
-	if (m_count == 1 && !m_isDash)
+	if (m_dashCount == 1 && !m_isDash)
 	{
 		m_speed = kDashSpeed;
 		m_isDash = true;

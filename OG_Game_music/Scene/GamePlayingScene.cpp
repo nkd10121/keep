@@ -91,10 +91,18 @@ void GamePlayingScene::Update(Input& input)
 
 	if (playerRect.IsCollision(enemyRect))
 	{
+		//Debag用
 #ifdef _DEBUG
 		//printfDx("hit\n");
 		color = (0xff0000);
 #endif
+		//playerをノックバックさせて少しの無敵時間を与える
+		//ノックバック->playerにノックバックスピードを渡す関数を用意して
+		//	player内でノックバックスピードを0にする処理を書く
+		player->SetKnockBackSpeed(5);
+		
+		//無敵時間 -> boolを返す関数を用意して
+		//	player内でtrueの時点滅と当たり判定の削除を行う処理をする
 	}
 	else
 	{
@@ -102,6 +110,7 @@ void GamePlayingScene::Update(Input& input)
 		color = (0xffffff);
 #endif
 	}
+
 
 	enemy->SetColor(color);
 

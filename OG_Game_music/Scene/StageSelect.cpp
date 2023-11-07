@@ -55,7 +55,7 @@ void StageSelect::FadeDraw()
 	//通常の描画
 	//playボタン
 	DrawBox(50, 40, 160, 80, 0xffffff, false);
-	DrawString(84, 52, "stge1", 0xffffff);
+	DrawString(84, 52, "stage1", 0xffffff);
 
 	//Quitボタン
 	DrawBox(50, 100, 160, 140, 0xffffff, false);
@@ -77,7 +77,7 @@ void StageSelect::NormalDraw()
 {
 	//playボタン
 	DrawBox(50, 40, 160, 80, 0xffffff, false);
-	DrawString(84, 52, "stge1", 0xffffff);
+	DrawString(84, 52, "stage1", 0xffffff);
 
 	//Quitボタン
 	DrawBox(50, 100, 160, 140, 0xffffff, false);

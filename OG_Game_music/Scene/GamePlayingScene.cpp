@@ -99,7 +99,7 @@ void GamePlayingScene::Update(Input& input)
 		//playerをノックバックさせて少しの無敵時間を与える
 		//ノックバック->playerにノックバックスピードを渡す関数を用意して
 		//	player内でノックバックスピードを0にする処理を書く
-		player->SetKnockBackSpeed(5);
+		player->SetKnockBackSpeed(50);
 		
 		//無敵時間 -> boolを返す関数を用意して
 		//	player内でtrueの時点滅と当たり判定の削除を行う処理をする

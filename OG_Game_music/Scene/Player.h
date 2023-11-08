@@ -17,7 +17,10 @@ public:
 	//プレイヤーの当たり判定を取得する
 	Rect GetColRect() const { return m_colRect; }
 
-	int SetKnockBackSpeed(int speed) { return knockBackSpeed = speed; }
+	int SetKnockBackSpeed(int speed) { return m_knockBackSpeed = speed; }
+
+	//プレイヤーが敵に当たった時の処理
+	void HitEnemy();
 
 private:
 	Vec2 m_pos;
@@ -41,6 +44,12 @@ private:
 	bool m_dashLog;
 
 	//ノックバックした時のスピード
-	int knockBackSpeed;
+	int m_knockBackSpeed;
+
+	//敵にヒットした時プレイヤーが点滅するように
+	int m_damageDrawFrame;
+
+	//敵にヒットした時に無敵時間
+	int m_playerInvincibleTime;
 };
 

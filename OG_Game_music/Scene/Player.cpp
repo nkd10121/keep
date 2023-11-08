@@ -27,7 +27,9 @@ Player::Player() :
 	m_dashCount(0),
 	m_isDash(false),
 	m_dashLog(false),
-	knockBackSpeed(0)
+	m_knockBackSpeed(0),
+	m_damageDrawFrame(0),
+	m_playerInvincibleTime(0)
 {
 
 }
@@ -44,6 +46,25 @@ void Player::Init()
 
 void Player::Update(Input& input)
 {
+	if (m_damageDrawFrame >= 0)
+	{
+		m_damageDrawFrame--;
+	}
+	else
+	{
+		m_damageDrawFrame = 0;
+	}
+
+	if (m_playerInvincibleTime >= 0)
+	{
+		m_playerInvincibleTime--;
+	}
+	else
+	{
+		m_playerInvincibleTime = 0;
+	}
+
+
 	//padの十字キーを使用してプレイヤーを移動させる
 	int pad = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 
@@ -95,12 +116,13 @@ void Player::Update(Input& input)
 #endif
 
 	////PADでの操作
-	m_pos.x += m_speed * (static_cast<float>(m_padStickX) / 700) - knockBackSpeed;
+	m_pos.x += m_speed * (static_cast<float>(m_padStickX) / 700) - m_knockBackSpeed;
 	m_pos.y += m_speed * (static_cast<float>(m_padStickY) / 700);
 
-	if (knockBackSpeed != 0)
+
+	if (m_knockBackSpeed != 0)
 	{
-		knockBackSpeed--;
+		m_knockBackSpeed--;
 	}
 
 	//止まった時、本家みたいに動かしたい
@@ -167,8 +189,10 @@ void Player::Update(Input& input)
 			m_isDash = false;
 		}
 	}
+
+
 	//当たり判定の更新
-	if (m_isDash)
+	if (m_isDash  || m_playerInvincibleTime != 0)
 	{
 		m_colPos = {-30,-30};
 	}
@@ -177,16 +201,18 @@ void Player::Update(Input& input)
 		m_colPos = m_pos;
 	}
 
+	if (m_damageDrawFrame != 0)
+	{
+	}
+
 	m_colRect.SetCenter(m_colPos.x, m_colPos.y, kWidth * 2, kHeight * 2);
+
+
 
 }
 
 void Player::Draw()
 {
-
-	DrawBox(m_pos.x - kWidth, m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, GetColor(255, 255, 0), true);
-	//DrawCircle(m_pos.x, m_pos.y, 10, GetColor(255, 255, 255), true);
-
 #ifdef _DEBUG
 	DrawFormatString(0, 0, GetColor(255, 255, 255), "X方向の入力 : %d", m_padStickX);
 	DrawFormatString(0, 16, GetColor(255, 255, 255), "Y方向の入力 : %d", m_padStickY);
@@ -197,4 +223,30 @@ void Player::Draw()
 
 	m_colRect.Draw(GetColor(255, 0, 0), false);
 #endif
+
+	//プレイヤーの枠
+	DrawBox(m_pos.x - kWidth, m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, GetColor(255, 255, 0), false);
+
+	//ダメージを受けたとき点滅するように
+	if (m_damageDrawFrame % 6 >= 5)
+	{
+		return;
+
+	}
+
+	//プレイヤーの表示
+	DrawBox(m_pos.x - kWidth, (m_pos.y - kHeight) + (m_playerInvincibleTime / 11.25), m_pos.x + kWidth, m_pos.y + kHeight, GetColor(255, 255, 0), true);
+
+}
+
+void Player::HitEnemy()
+{
+	int count = 180;
+	count--;
+
+	//ノックバックスピードを与える
+	m_knockBackSpeed = 15;
+
+	m_damageDrawFrame = 180;
+	m_playerInvincibleTime = 180;
 }

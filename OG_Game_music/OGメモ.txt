@@ -1,0 +1,36 @@
+OGメモ
+コーディング規約
+メンバ関数の名前は 頭文字大文字 で始める
+メンバ変数の名前は m_ で始める
+namespaceで作った変数は k で始める
+
+クラスの関数の並びは上からよく使う順
+
+アニメーションの動きがパッとしないときは残像を表示すると何とかなる？
+加算ブレンドも良き
+ー＞光っている表現や、派手なエフェクト向け
+
+MakeScreen関数
+いままではメモリ上にロードしたのを使っていたが
+これを使うと、メモリ上に直接グラフィックデータを生成できる
+
+↑を使えば
+音楽に合わせて画面を揺らすことができそう？？
+
+	//バックバッファに書き込む設定に戻しておく
+	SetDrawScreen(DX_SCREEN_BACK);
+
+	//ゲーム画面をバックバッファに描画する
+	int screenX = 0;
+	int screenY = 0;
+
+	if (m_shakeFrame > 0)
+	{
+		screenX = GetRand(8) - 4;
+		screenY = GetRand(8) - 4;
+
+	}
+
+	DrawGraph(screenX, screenY,m_gameScreenHandle,true);
+
+どこかでm_shakeFrameに値を入れて、0になるまで--する処理を描くといける

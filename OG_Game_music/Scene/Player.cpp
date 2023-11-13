@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "DxLib.h"
 #include "../Input.h"
+#include "../Application.h"
 
 namespace
 {
@@ -13,8 +14,8 @@ namespace
 	constexpr int kHeight = 8;
 
 	//画面サイズ
-	constexpr int kScreenWidth = 640;
-	constexpr int kScreenHeight = 480;
+	constexpr int kScreenWidth = 1280;
+	constexpr int kScreenHeight = 720;
 
 }
 
@@ -147,7 +148,7 @@ void Player::Update(Input& input)
 	//画面外に出ないように
 	if (m_pos.x + kWidth >= kScreenWidth)
 	{
-		m_pos.x = 640 - kWidth;
+		m_pos.x = kScreenWidth - kWidth;
 	}
 	if (m_pos.x - kWidth <= 0)
 	{
@@ -159,7 +160,7 @@ void Player::Update(Input& input)
 	}
 	if (m_pos.y + kHeight >= kScreenHeight)
 	{
-		m_pos.y = 480 - kHeight;
+		m_pos.y = kScreenHeight - kHeight;
 	}
 
 
@@ -228,10 +229,10 @@ void Player::Draw()
 	DrawBox(m_pos.x - kWidth, m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, GetColor(255, 255, 0), false);
 
 	//ダメージを受けたとき点滅するように
-	if (m_damageDrawFrame % 6 >= 5)
+	if (m_damageDrawFrame % 6 >= 4)
 	{
+		DrawBox(m_pos.x - kWidth, (m_pos.y - kHeight) + (m_playerInvincibleTime / 11.25), m_pos.x + kWidth, m_pos.y + kHeight, GetColor(255, 128, 0), true);
 		return;
-
 	}
 
 	//プレイヤーの表示
@@ -245,7 +246,7 @@ void Player::HitEnemy()
 	count--;
 
 	//ノックバックスピードを与える
-	m_knockBackSpeed = 15;
+	m_knockBackSpeed = 20;
 
 	m_damageDrawFrame = 180;
 	m_playerInvincibleTime = 180;

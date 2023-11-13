@@ -122,7 +122,7 @@ void GamePlayingScene::Update(Input& input)
 void GamePlayingScene::Draw()
 {
 	//”wŒi
-	DrawBox(0, 0, 640, 640, GetColor(16, 4, 16), true);
+	DrawBox(0, 0, 1280, 720, GetColor(16, 4, 16), true);
 
 	player->Draw();
 	enemy->Draw();

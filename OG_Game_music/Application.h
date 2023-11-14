@@ -44,6 +44,5 @@ public:
 	void Run();
 
 	const Size& GetWindowSize() const;
-
 };
 

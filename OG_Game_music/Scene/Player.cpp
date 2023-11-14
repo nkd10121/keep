@@ -32,7 +32,7 @@ Player::Player() :
 	m_damageDrawFrame(0),
 	m_playerInvincibleTime(0)
 {
-
+	Application& application = Application::GetInstance();
 }
 
 Player::~Player()

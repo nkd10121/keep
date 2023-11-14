@@ -7,8 +7,8 @@ namespace
 	constexpr int kHeight = 10;
 
 	//âÊñ ÉTÉCÉY
-	constexpr int kScreenWidth = 640;
-	constexpr int kScreenHeight = 480;
+	constexpr int kScreenWidth = 1280;
+	constexpr int kScreenHeight = 720;
 }
 
 Enemy::Enemy():

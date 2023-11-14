@@ -1,23 +1,5 @@
 ﻿  Application.cpp
 C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  Enemy.cpp
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Enemy.cpp(27,34): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Enemy.cpp(28,34): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Enemy.cpp(56,72): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Enemy.cpp(56,54): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Enemy.cpp(56,35): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Enemy.cpp(56,18): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  OptionScene.cpp
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\OptionScene.cpp(1,10): warning C4067: プリプロセッサ ディレクティブの後に余分な文字がありました - 改行が必要です
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\OptionScene.cpp(2,10): warning C4067: プリプロセッサ ディレクティブの後に余分な文字がありました - 改行が必要です
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\OptionScene.cpp(66,12): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  GamePlayingScene.cpp
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\GamePlayingScene.cpp(50,12): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  Input.cpp
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
   main.cpp
 C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
   PauseScene.cpp
@@ -37,17 +19,5 @@ C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\Player.cpp(239,110):
 C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\Player.cpp(239,92): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
 C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\Player.cpp(239,48): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
 C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\Player.cpp(239,18): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  queue.cpp
-  Rect.cpp
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-  Scene.cpp
-  SceneManager.cpp
-  StageSelect.cpp
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\StageSelect.cpp(70,12): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  TitleScene.cpp
-C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\TitleScene.cpp(91,12): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
-  Vec2.cpp
   コードを生成中...
   OG_Game_music.vcxproj -> C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\x64\Debug\OG_Game_music.exe

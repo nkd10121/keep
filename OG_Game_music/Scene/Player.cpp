@@ -12,11 +12,6 @@ namespace
 	//キャラクターのサイズ
 	constexpr int kWidth = 8;
 	constexpr int kHeight = 8;
-
-	//画面サイズ
-	constexpr int kScreenWidth = 1280;
-	constexpr int kScreenHeight = 720;
-
 }
 
 Player::Player() :
@@ -32,7 +27,11 @@ Player::Player() :
 	m_damageDrawFrame(0),
 	m_playerInvincibleTime(0)
 {
-	Application& application = Application::GetInstance();
+	Application& app = Application::GetInstance();
+	const auto& size = app.GetWindowSize();
+
+	ScreenSizeW = size.w;
+	ScreenSizeH = size.h;
 }
 
 Player::~Player()
@@ -146,9 +145,9 @@ void Player::Update(Input& input)
 	m_pos += move;
 
 	//画面外に出ないように
-	if (m_pos.x + kWidth >= kScreenWidth)
+	if (m_pos.x + kWidth >= ScreenSizeW)
 	{
-		m_pos.x = kScreenWidth - kWidth;
+		m_pos.x = ScreenSizeW - kWidth;
 	}
 	if (m_pos.x - kWidth <= 0)
 	{
@@ -158,9 +157,9 @@ void Player::Update(Input& input)
 	{
 		m_pos.y = 0 + kHeight;
 	}
-	if (m_pos.y + kHeight >= kScreenHeight)
+	if (m_pos.y + kHeight >= ScreenSizeH)
 	{
-		m_pos.y = kScreenHeight - kHeight;
+		m_pos.y = ScreenSizeH - kHeight;
 	}
 
 

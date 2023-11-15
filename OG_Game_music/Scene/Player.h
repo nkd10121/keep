@@ -26,6 +26,9 @@ private:
 	Vec2 m_pos;
 	Vec2 m_colPos;
 
+	int ScreenSizeW;
+	int ScreenSizeH;
+
 	//“–‚½‚è”»’è—p‚Ì‹éŒ`
 	Rect m_colRect;
 

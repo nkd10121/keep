@@ -1,11 +1,12 @@
 #include "GamePlayingScene.h"
-#include "../Input.h"
-#include "StageSelect.h"
-#include "SceneManager.h"
 #include <DxLib.h>
+#include "SceneManager.h"
+#include "StageSelect.h"
 #include "PauseScene.h"
 #include "Player.h"
+#include "../Input.h"
 #include "../Enemy.h"
+#include "../EnemyLine.h"
 
 void GamePlayingScene::FadeInUpdate(Input& input)
 {
@@ -65,6 +66,7 @@ GamePlayingScene::GamePlayingScene(SceneManager& mgr) :
 	//ƒƒ‚ƒŠŠm•Û
 	player = new Player;
 	enemy = new Enemy;
+	eneLin = new EnemyLine;
 
 	player->Init();
 	enemy->Init();
@@ -85,6 +87,7 @@ void GamePlayingScene::Update(Input& input)
 {
 	player->Update(input);
 	enemy->Update();
+	eneLin->Update();
 
 	Rect playerRect = player->GetColRect();
 	Rect enemyRect = enemy->GetColRect();
@@ -126,6 +129,8 @@ void GamePlayingScene::Draw()
 
 	player->Draw();
 	enemy->Draw();
+
+	eneLin->Draw();
 
 	(this->*drawFunc_)();
 }

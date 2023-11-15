@@ -4,6 +4,7 @@
 
 class Player;
 class Enemy;
+class EnemyLine;
 
 class GamePlayingScene : public Scene
 {
@@ -17,6 +18,8 @@ private:
 
 	Player* player;
 	Enemy* enemy;
+
+	EnemyLine* eneLin;
 
 	unsigned int color;
 

@@ -71,9 +71,6 @@ void Player::Update(Input& input)
 	//移動量を持つようにする
 	Vec2 move{ 0.0f,0.0f };
 
-	bool isMove = false;	//移動しているかどうか
-	bool isLogMove = false;
-
 	//padのスティック情報を取得
 	GetJoypadAnalogInput(&m_padStickX, &m_padStickY, DX_INPUT_KEY_PAD1);
 
@@ -84,7 +81,6 @@ void Player::Update(Input& input)
 	{
 		move.y = m_padStickY;
 		//move.y += m_speed * (m_padStickY * 0.00002);
-		isMove = true;
 	}
 
 	//Sキー
@@ -93,7 +89,6 @@ void Player::Update(Input& input)
 	{
 		move.y = m_padStickY;
 		//move.y += m_speed * (m_padStickY * 0.00002);
-		isMove = true;
 	}
 
 	//Aキー
@@ -102,7 +97,6 @@ void Player::Update(Input& input)
 	{
 		move.x -= m_speed;
 		//move.x += m_speed * (m_padStickX * 0.00002);
-		isMove = true;
 	}
 
 	//Dキー
@@ -111,7 +105,6 @@ void Player::Update(Input& input)
 	{
 		move.x += m_speed;
 		//move.x += m_speed * (m_padStickX * 0.00002);
-		isMove = true;
 	}
 #endif
 
@@ -119,22 +112,14 @@ void Player::Update(Input& input)
 	m_pos.x += m_speed * (static_cast<float>(m_padStickX) / 700) - m_knockBackSpeed;
 	m_pos.y += m_speed * (static_cast<float>(m_padStickY) / 700);
 
-
+	//ノックバックしたとき
+	//ノックバックのスピードをだんだん減らす
 	if (m_knockBackSpeed != 0)
 	{
 		m_knockBackSpeed--;
 	}
 
-	//止まった時、本家みたいに動かしたい
-	if (!(isMove) && isLogMove)
-	{
-
-	}
-
-	isLogMove = isMove;
-
 	//斜め移動の場合も同じ速さで移動するようにする
-
 	//ベクトルの正規化
 	move.normalize();
 
@@ -180,7 +165,7 @@ void Player::Update(Input& input)
 		m_speed = kDashSpeed;
 		m_isDash = true;
 	}
-	//スピードを少しづつ元のスピードに
+	//スピードを少しずつ元のスピードに
 	if (m_speed >= kBaseSpeed)
 	{
 		m_speed--;
@@ -192,23 +177,19 @@ void Player::Update(Input& input)
 
 
 	//当たり判定の更新
+	//ダッシュしているときかダメージを受けた後の無敵時間の間は当たり判定をなくす
 	if (m_isDash  || m_playerInvincibleTime != 0)
 	{
 		m_colPos = {-30,-30};
 	}
+	//それ以外の時は当たり判定をつける
 	else
 	{
 		m_colPos = m_pos;
 	}
 
-	if (m_damageDrawFrame != 0)
-	{
-	}
-
+	//当たり判定の設定
 	m_colRect.SetCenter(m_colPos.x, m_colPos.y, kWidth * 2, kHeight * 2);
-
-
-
 }
 
 void Player::Draw()

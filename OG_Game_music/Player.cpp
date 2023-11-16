@@ -1,7 +1,7 @@
 #include "Player.h"
 #include "DxLib.h"
-#include "../Input.h"
-#include "../Application.h"
+#include "Input.h"
+#include "Application.h"
 
 namespace
 {

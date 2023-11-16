@@ -3,7 +3,7 @@
 #include "SceneManager.h"
 #include "StageSelect.h"
 #include "PauseScene.h"
-#include "Player.h"
+#include "../Player.h"
 #include "../Input.h"
 #include "../Enemy.h"
 #include "../EnemyLine.h"

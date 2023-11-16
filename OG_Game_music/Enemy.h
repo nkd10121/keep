@@ -1,7 +1,6 @@
 #pragma once
 #include "Vec2.h"
-#include "Rect.h"
-
+#include "Rect.h"  
 
 class Enemy
 {

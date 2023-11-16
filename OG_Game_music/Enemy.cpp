@@ -1,6 +1,7 @@
 #include "Enemy.h"
 #include "DxLib.h"
 
+
 namespace
 {
 	constexpr int kWidth = 10;

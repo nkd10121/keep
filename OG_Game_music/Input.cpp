@@ -30,6 +30,7 @@ Input::Input()
 
 void Input::Update()
 {
+
 	lastInputData_ = inputData_;	//直前入力をコピーしておく(押した瞬間を取得する用)
 
 	//ハードウェア入力チェック
@@ -41,6 +42,8 @@ void Input::Update()
 	//inputData_の内容を更新していく
 	for (const auto& cmd : commandTable)
 	{
+		auto& test = cmd.first;
+
 		auto& input = inputData_[cmd.first];//コマンドの名前から入力データを作る
 
 		for (const auto& hardIO : cmd.second)

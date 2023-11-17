@@ -13,7 +13,6 @@ class Input
 {
 private:
 	std::map < std::string, std::map<InputType, int>> commandTable;
-
 	//コマンドの入力を覚えておく
 	std::map < std::string, bool> inputData_;		//現在の入力
 	std::map < std::string, bool> lastInputData_;	//直前の入力

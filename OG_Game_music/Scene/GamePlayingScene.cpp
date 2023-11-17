@@ -3,6 +3,7 @@
 #include "SceneManager.h"
 #include "StageSelect.h"
 #include "PauseScene.h"
+#include "../Game.h"
 #include "../Player.h"
 #include "../Input.h"
 #include "../Enemy.h"
@@ -50,7 +51,7 @@ void GamePlayingScene::FadeDraw()
 
 	int alpha = 255 * static_cast<float>(frame_) / 60.0f;
 	SetDrawBlendMode(DX_BLENDMODE_MULA, alpha);
-	DrawBox(0, 0, 640, 480, 0x000000, true);
+	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, 0x000000, true);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
@@ -125,12 +126,12 @@ void GamePlayingScene::Update(Input& input)
 void GamePlayingScene::Draw()
 {
 	//”wŒi
-	DrawBox(0, 0, 1280, 720, GetColor(16, 4, 16), true);
+	DrawBox(0, 0, 1280, 720, 0x000000, true);
+
+	enemy->Draw();
+	eneLin->Draw();
 
 	player->Draw();
-	enemy->Draw();
-
-	eneLin->Draw();
 
 	(this->*drawFunc_)();
 }

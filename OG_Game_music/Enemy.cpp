@@ -1,19 +1,16 @@
 #include "Enemy.h"
 #include "DxLib.h"
-
+#include "Game.h"
 
 namespace
 {
 	constexpr int kWidth = 10;
 	constexpr int kHeight = 10;
 
-	//画面サイズ
-	constexpr int kScreenWidth = 1280;
-	constexpr int kScreenHeight = 720;
 }
 
-Enemy::Enemy():
-	m_pos(kScreenWidth / 2, kScreenHeight / 2)
+Enemy::Enemy() :
+	m_pos(Game::kScreenWidth / 2, Game::kScreenHeight / 2)
 {
 
 }
@@ -34,7 +31,7 @@ void Enemy::Update()
 	m_colRect.SetCenter(m_pos.x, m_pos.y, kWidth * 2, kHeight * 2);
 
 	//画面外に出ないように
-	if (m_pos.x + kWidth >= kScreenWidth)
+	if (m_pos.x + kWidth >= Game::kScreenWidth)
 	{
 		m_pos.x = 640 - kWidth;
 	}
@@ -46,7 +43,7 @@ void Enemy::Update()
 	{
 		m_pos.y = 0 + kHeight;
 	}
-	if (m_pos.y + kHeight >= kScreenHeight)
+	if (m_pos.y + kHeight >= Game::kScreenHeight)
 	{
 		m_pos.y = 480 - kHeight;
 	}

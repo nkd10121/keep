@@ -1,6 +1,7 @@
 #include "PauseScene.h"
 #include "DxLib.h"
 #include "../Input.h"
+#include "../Game.h"
 #include "../Application.h"
 #include "SceneManager.h"
 

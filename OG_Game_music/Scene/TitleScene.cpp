@@ -1,5 +1,6 @@
 #include <DxLib.h>
 #include "../Input.h"
+#include "../Game.h"
 #include "SceneManager.h"
 #include "TitleScene.h"
 #include "StageSelect.h"
@@ -90,7 +91,7 @@ void TitleScene::FadeDraw()
 	//フェード暗幕
 	int alpha = 255 * (float)frame_ / 60.0f;
 	SetDrawBlendMode(DX_BLENDMODE_MULA, alpha);
-	DrawBox(0, 0, 640, 480, 0x000000, true);
+	DrawBox(0, 0, Game::kScreenWidth, Game::kScreenHeight, 0x000000, true);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 

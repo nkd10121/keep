@@ -14,5 +14,7 @@ private:
 
 	int endPosX;
 	int endPosY;
+
+	int frame;
 };
 

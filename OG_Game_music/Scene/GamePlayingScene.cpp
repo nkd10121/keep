@@ -9,6 +9,11 @@
 #include "../Enemy.h"
 #include "../EnemyLine.h"
 
+namespace
+{
+	constexpr int kEnemyLineMax = 32;
+}
+
 void GamePlayingScene::FadeInUpdate(Input& input)
 {
 	frame_--;
@@ -67,7 +72,13 @@ GamePlayingScene::GamePlayingScene(SceneManager& mgr) :
 	//ÉÅÉÇÉäämï€
 	player = new Player;
 	enemy = new Enemy;
-	eneLin = new EnemyLine;
+	
+	eneLin.resize(kEnemyLineMax);
+
+	for (int i = 0; i < kEnemyLineMax; i++)
+	{
+		eneLin[i] = nullptr;
+	}
 
 	player->Init();
 	enemy->Init();
@@ -81,14 +92,30 @@ GamePlayingScene::GamePlayingScene(SceneManager& mgr) :
 
 GamePlayingScene::~GamePlayingScene()
 {
+	delete player;
+	player = nullptr;
 
+	delete enemy;
+	enemy = nullptr;
+
+	for (int i = 0; i < eneLin.size(); i++)
+	{
+		if (eneLin[i] != nullptr)
+		{
+			eneLin[i] = nullptr;
+		}
+	}
 }
 
 void GamePlayingScene::Update(Input& input)
 {
 	player->Update(input);
 	enemy->Update();
-	eneLin->Update();
+
+	for (int i = 0; i < eneLin.size(); i++)
+	{
+		eneLin[i]-> Update();
+	}
 
 	Rect playerRect = player->GetColRect();
 	Rect enemyRect = enemy->GetColRect();
@@ -129,9 +156,23 @@ void GamePlayingScene::Draw()
 	DrawBox(0, 0, 1280, 720, 0x000000, true);
 
 	enemy->Draw();
-	eneLin->Draw();
+	for (int i = 0; i < eneLin.size(); i++)
+	{
+		eneLin[i]->Draw();
+	}
 
 	player->Draw();
 
 	(this->*drawFunc_)();
+}
+
+void GamePlayingScene::CreateEnemyLine()
+{
+	for (int i = 0; i < kEnemyLineMax; i++)
+	{
+		if (!eneLin[i])
+		{
+			eneLin[i] = new EnemyLine;
+		}
+	}
 }

@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+
 #include "Scene.h"
 #include "../Vec2.h"
 
@@ -14,12 +16,15 @@ public:
 	void Update(Input& input);
 	void Draw();
 
+	void CreateEnemyLine();
+
 private:
 
 	Player* player;
 	Enemy* enemy;
 
-	EnemyLine* eneLin;
+	//EnemyLine* eneLin;
+	std::vector<EnemyLine*> eneLin;
 
 	unsigned int color;
 

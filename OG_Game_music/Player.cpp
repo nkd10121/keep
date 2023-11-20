@@ -24,6 +24,7 @@ Player::Player() :
 	m_dashCount(0),
 	m_isDash(false),
 	m_dashLog(false),
+	hitCount(0),
 	m_knockBackSpeed(0),
 	m_damageDrawFrame(0),
 	m_playerInvincibleTime(0)
@@ -161,11 +162,18 @@ void Player::Update(Input& input)
 		m_dashCount = 0;
 	}
 	//押した瞬間ダッシュ
-	if (m_dashCount == 1 && !m_isDash)
+	if (m_dashCount == 1 && !m_isDash && m_speed == 0)
+	{
+		//移動していないときにダッシュ押したら右にまっすぐ進むように
+		m_isDash = true;
+	}
+	else if (m_dashCount == 1 && !m_isDash)
 	{
 		m_speed = kDashSpeed;
 		m_isDash = true;
 	}
+
+
 	//スピードを少しずつ元のスピードに
 	if (m_speed >= kBaseSpeed)
 	{
@@ -203,22 +211,40 @@ void Player::Draw()
 	DrawFormatString(0, 32, GetColor(255, 255, 255), "Xpos : %f", m_pos.x);
 	DrawFormatString(0, 48, GetColor(255, 255, 255), "Ypos : %f", m_pos.y);
 
+	DrawFormatString(0, 64, GetColor(255, 255, 255), "hitCount : %d", hitCount);
+
 	m_colRect.Draw(GetColor(255, 0, 0), false);
 #endif
 
-	//プレイヤーの枠
-	DrawBox(m_pos.x - kWidth, m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, GetColor(255, 255, 0), false);
 
 	//ダメージを受けたとき点滅するように
 	if (m_damageDrawFrame % 6 >= 4)
 	{
-		DrawBox(m_pos.x - kWidth, (m_pos.y - kHeight) + (m_playerInvincibleTime / 11.25), m_pos.x + kWidth, m_pos.y + kHeight, GetColor(255, 128, 0), true);
+		DrawBox(m_pos.x - kWidth, (m_pos.y - kHeight) + (m_playerInvincibleTime / 11.25),
+			m_pos.x + kWidth, m_pos.y + kHeight, GetColor(255, 128, 0), true);
 		return;
 	}
 
 	//プレイヤーの表示
-	DrawBox(m_pos.x - kWidth, (m_pos.y - kHeight) + (m_playerInvincibleTime / 11.25), m_pos.x + kWidth, m_pos.y + kHeight, GetColor(255, 255, 0), true);
+	DrawBox(m_pos.x - kWidth, (m_pos.y - kHeight) + (m_playerInvincibleTime / 11.25),
+		m_pos.x + kWidth, m_pos.y + kHeight, GetColor(255, 255, 0), true);
 
+	if (hitCount == 1)
+	{
+		DrawBox(m_pos.x, m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y, 0x000000, true);
+	}
+	else if (hitCount == 2)
+	{
+		DrawBox(m_pos.x, m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, 0x000000, true);
+	}
+	else if(hitCount == 3)
+	{
+		DrawBox(m_pos.x, m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, 0x000000, true);
+		DrawBox(m_pos.x - kWidth, m_pos.y - kHeight, m_pos.x, m_pos.y, 0x000000, true);
+	}
+
+	//プレイヤーの枠
+	DrawBox(m_pos.x - kWidth, m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, GetColor(64, 64, 0), false);
 }
 
 void Player::HitEnemy()
@@ -231,4 +257,5 @@ void Player::HitEnemy()
 
 	m_damageDrawFrame = 180;
 	m_playerInvincibleTime = 180;
+	hitCount++;
 }

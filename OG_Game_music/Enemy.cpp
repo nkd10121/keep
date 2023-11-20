@@ -29,24 +29,6 @@ void Enemy::Init()
 void Enemy::Update()
 {
 	m_colRect.SetCenter(m_pos.x, m_pos.y, kWidth * 2, kHeight * 2);
-
-	//‰æ–ÊŠO‚Éo‚È‚¢‚æ‚¤‚É
-	if (m_pos.x + kWidth >= Game::kScreenWidth)
-	{
-		m_pos.x = 640 - kWidth;
-	}
-	if (m_pos.x - kWidth <= 0)
-	{
-		m_pos.x = 0 + kWidth;
-	}
-	if (m_pos.y - kHeight <= 0)
-	{
-		m_pos.y = 0 + kHeight;
-	}
-	if (m_pos.y + kHeight >= Game::kScreenHeight)
-	{
-		m_pos.y = 480 - kHeight;
-	}
 }
 
 void Enemy::Draw()

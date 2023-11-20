@@ -28,8 +28,10 @@ private:
 
 	unsigned int color;
 
-	float fps = 0.0f;
-	int frame_ = 0;
+	float fps;
+	int fadeFrame;
+
+	int enemyLineInterval;
 
 	//状態遷移用メンバ関数ポインタの宣言
 	using UpdateFunc_t = void (GamePlayingScene::*)(Input&);

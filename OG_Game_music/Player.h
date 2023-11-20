@@ -46,6 +46,9 @@ private:
 	//長押しかどうか判定するよう
 	bool m_dashLog;
 
+	//敵に当たった回数
+	int hitCount;
+
 	//ノックバックした時のスピード
 	int m_knockBackSpeed;
 

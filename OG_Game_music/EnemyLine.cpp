@@ -3,7 +3,7 @@
 #include "Game.h"
 namespace
 {
-	constexpr int kLineWidth = 50;
+	constexpr int kLineWidth = 72;
 }
 
 EnemyLine::EnemyLine() :
@@ -32,17 +32,17 @@ void EnemyLine::Update()
 	if (!m_isExist)
 		return;
 
-	if (endPos.y >= 1600)
+	if (endPos.y >= 2400)
 	{
 		//画面下までついたら当たり判定を消してenemyLineをフェードアウトさせる
-		startColPos.x = -60;
+		startColPos.x = 0 - kLineWidth;
 		frame += 3;
 	}
 	else if (endPos.y >= 30)
 	{
 		startColPos = startPos;
 		endColPos = endPos;
-		endPos.y += 100;
+		endPos.y += 80;
 	}
 	else
 	{

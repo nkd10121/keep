@@ -249,6 +249,11 @@ void Player::Draw()
 	DrawBox(m_pos.x - kWidth, m_pos.y - kHeight, m_pos.x + kWidth, m_pos.y + kHeight, GetColor(64, 64, 0), false);
 }
 
+float Player::GetPlayerPosX() const
+{
+	return m_pos.x + kWidth;
+}
+
 void Player::HitEnemy()
 {
 	int count = 180;

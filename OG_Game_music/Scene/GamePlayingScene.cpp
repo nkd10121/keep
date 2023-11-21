@@ -243,7 +243,6 @@ void GamePlayingScene::Draw()
 		if (eneLin[i])
 		{
 			eneLin[i]->Draw();
-
 		}
 	}
 
@@ -254,8 +253,8 @@ void GamePlayingScene::Draw()
 	//フレーム数が1500以上になった時、チェックポイントのラインを表示する
 	if (isDrawCheckPointLine)
 	{
-		checkPointX -= 4;
-		DrawLine(checkPointX,0,checkPointX,720,0xffffff,5);
+		checkPointX -= 2;
+		DrawLine(checkPointX,0,checkPointX,720,0x00bfff,5);
 	}
 #ifdef _DEBUG
 	//デバッグ用

@@ -19,7 +19,7 @@ public:
 
 	int SetKnockBackSpeed(int speed) { return m_knockBackSpeed = speed; }
 
-	float GetPlayerPosX()const { return m_pos.x; }
+	float GetPlayerPosX()const;
 
 	//ƒvƒŒƒCƒ„[‚ª“G‚É“–‚½‚Á‚½‚Ìˆ—
 	void HitEnemy();

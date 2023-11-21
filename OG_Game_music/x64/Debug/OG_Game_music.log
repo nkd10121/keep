@@ -1,4 +1,13 @@
-﻿  GamePlayingScene.cpp
+﻿  EnemyLine.cpp
 C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\GamePlayingScene.cpp(62,12): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\EnemyLine.cpp(25,22): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\EnemyLine.cpp(71,19): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\EnemyLine.cpp(71,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\EnemyLine.cpp(70,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\EnemyLine.cpp(70,18): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\EnemyLine.cpp(76,12): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\EnemyLine.cpp(79,19): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\EnemyLine.cpp(79,9): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\EnemyLine.cpp(78,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\EnemyLine.cpp(78,18): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
   OG_Game_music.vcxproj -> C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\x64\Debug\OG_Game_music.exe

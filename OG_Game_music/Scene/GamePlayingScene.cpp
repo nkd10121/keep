@@ -11,7 +11,12 @@
 
 namespace
 {
+	//画面内に表示する敵の最大数
 	constexpr int kEnemyLineMax = 32;
+	//enemyLineが出てくるクールタイム
+	constexpr int kEnemyLineInterval = 16;
+	//checkpointLineが出てくるクールタイム
+	constexpr int kCheckPointLineInterval = 1200;
 }
 
 void GamePlayingScene::FadeInUpdate(Input& input)
@@ -73,7 +78,11 @@ GamePlayingScene::GamePlayingScene(SceneManager& mgr) :
 	color(0),
 	fps(0.0f),
 	fadeFrame(0),
-	enemyLineInterval(0)
+	enemyLineInterval(0),
+	frame(0),
+	checkPointCount(0),
+	checkPointX(1280),
+	isDrawCheckPointLine(false)
 {
 	//メモリ確保
 	player = new Player;
@@ -115,10 +124,14 @@ GamePlayingScene::~GamePlayingScene()
 
 void GamePlayingScene::Update(Input& input)
 {
+	//フレーム数をカウント
+	frame++;
+
+	//更新
 	player->Update(input);
 	enemy->Update();
 
-
+	//enemyLineの更新
 	for (int i = 0; i < eneLin.size(); i++)
 	{
 		if (eneLin[i])
@@ -136,9 +149,11 @@ void GamePlayingScene::Update(Input& input)
 		}
 	}
 
+	//当たり判定の設定
 	Rect playerRect = player->GetColRect();
 	Rect enemyRect = enemy->GetColRect();
 
+	//プレイヤーと敵が当たった時の処理
 	if (playerRect.IsCollision(enemyRect))
 	{
 		//Debag用
@@ -161,6 +176,7 @@ void GamePlayingScene::Update(Input& input)
 #endif
 	}
 
+	//enemyLineが画面内に表示されたときの当たり判定処理
 	for (int i = 0; i < eneLin.size(); i++)
 	{
 		if (eneLin[i])
@@ -168,8 +184,8 @@ void GamePlayingScene::Update(Input& input)
 			Rect enemyLineRect = eneLin[i]->GetColRect();
 			if (playerRect.IsCollision(enemyLineRect))
 			{
-				//Debag用
 #ifdef _DEBUG
+		//Debag用
 		//printfDx("hit\n");
 				color = (0xff0000);
 #endif
@@ -187,13 +203,14 @@ void GamePlayingScene::Update(Input& input)
 				color = (0xffffff);
 #endif
 			}
-
 		}
 	}
 
 
+	//enemyLineが出てくるカウントを増やして
+	//規定数を超えたら敵が出てくるように
 	enemyLineInterval++;
-	if (enemyLineInterval >= 30)
+	if (enemyLineInterval >= kEnemyLineInterval)
 	{
 		enemyLineInterval = 0;
 		CreateEnemyLine();
@@ -201,7 +218,16 @@ void GamePlayingScene::Update(Input& input)
 
 	enemy->SetColor(color);
 
-
+	if (frame == kCheckPointLineInterval)
+	{
+		isDrawCheckPointLine = true;
+	}
+	
+	if (checkPointX <= player->GetPlayerPosX())
+	{
+		isDrawCheckPointLine = false;
+		checkPointX = 1280;
+	}
 	fps = GetFPS();
 	(this->*updateFunc_)(input);
 }
@@ -224,6 +250,17 @@ void GamePlayingScene::Draw()
 	player->Draw();
 
 	(this->*drawFunc_)();
+
+	//フレーム数が1500以上になった時、チェックポイントのラインを表示する
+	if (isDrawCheckPointLine)
+	{
+		checkPointX -= 4;
+		DrawLine(checkPointX,0,checkPointX,720,0xffffff,5);
+	}
+#ifdef _DEBUG
+	//デバッグ用
+	DrawFormatString(640, 0, 0xff0000, "%d", frame);
+#endif
 }
 
 void GamePlayingScene::CreateEnemyLine()

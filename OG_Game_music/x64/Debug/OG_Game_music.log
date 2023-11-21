@@ -1,34 +1,4 @@
-﻿  Player.cpp
+﻿  GamePlayingScene.cpp
 C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h(3344,1): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(137,25): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(149,25): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(167,29): warning C4244: '+=': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(224,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(224,12): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(223,49): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(223,19): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(230,29): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(230,11): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(229,48): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(229,18): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(234,62): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(234,47): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(234,28): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(234,16): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(238,65): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(238,47): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(238,28): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(238,16): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(242,65): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(242,47): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(242,28): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(242,16): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(243,62): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(243,53): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(243,37): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(243,19): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(247,73): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(247,55): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(247,36): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Player.cpp(247,18): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\Scene\GamePlayingScene.cpp(62,12): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
   OG_Game_music.vcxproj -> C:\Users\fko2347087\Desktop\github\keep\OG_Game_music\x64\Debug\OG_Game_music.exe

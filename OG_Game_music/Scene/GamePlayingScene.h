@@ -33,6 +33,12 @@ private:
 
 	int enemyLineInterval;
 
+	int frame;
+	int checkPointCount;
+	int checkPointX;
+	bool isDrawCheckPointLine;
+
+
 	//状態遷移用メンバ関数ポインタの宣言
 	using UpdateFunc_t = void (GamePlayingScene::*)(Input&);
 	using DrawFunc_t = void (GamePlayingScene::*)();

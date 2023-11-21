@@ -32,7 +32,7 @@ void EnemyLine::Update()
 	if (!m_isExist)
 		return;
 
-	if (endPos.y >= 720)
+	if (endPos.y >= 1600)
 	{
 		//画面下までついたら当たり判定を消してenemyLineをフェードアウトさせる
 		startColPos.x = -60;
@@ -79,9 +79,9 @@ void EnemyLine::Draw()
 		endPos.x, endPos.y,
 		0x000000, true);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-	DrawFormatString(0, 720 - 16, 0xffffff, "endPos.y : %d", endPos.y);
 
 #ifdef _DEBUG
+	//DrawFormatString(0, 720 - 16, 0xffffff, "endPos.y : %d", endPos.y);
 	colRect.Draw(GetColor(255, 0, 0), false);
 #endif
 }

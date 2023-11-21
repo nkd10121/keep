@@ -48,6 +48,8 @@ void Player::Init()
 
 void Player::Update(Input& input)
 {
+	//m_damageDrawFrame‚ª0‚æ‚è‘å‚«‚¢‚Æ‚«‚É‚¾‚ñ‚¾‚ñ¬‚³‚­‚µ‚Ä
+	//ˆê‰ž‚»‚êˆÈŠO‚ÌŽž‚Í0‚ð‘ã“ü‚·‚é‚æ‚¤‚É‚·‚é
 	if (m_damageDrawFrame >= 0)
 	{
 		m_damageDrawFrame--;

@@ -143,11 +143,11 @@ StageSelect::StageSelect(SceneManager& mgr) :
 
 	target.resize(3);
 	//チュートリアルに行く円
-	CreateTargetCircle(Game::kScreenWidth / 8 * 5, Game::kScreenHeight / 4,1);
+	CreateTargetCircle(Game::kScreenWidth / 8 * 5, Game::kScreenHeight / 4 * 2,1);
 	//ステージ1に行く円
-	CreateTargetCircle(Game::kScreenWidth / 8 * 7, Game::kScreenHeight / 4,1);
+	CreateTargetCircle(Game::kScreenWidth / 8 * 6, Game::kScreenHeight / 4 * 2,1);
 	//ステージ2に行く円
-	CreateTargetCircle(Game::kScreenWidth / 8 * 5, Game::kScreenHeight / 4 * 3,1);
+	CreateTargetCircle(Game::kScreenWidth / 8 * 7, Game::kScreenHeight / 4 * 2,1);
 
 	updateFunc_ = &StageSelect::FadeInUpdate;
 	drawFunc_ = &StageSelect::FadeDraw;

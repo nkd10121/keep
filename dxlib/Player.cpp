@@ -81,7 +81,7 @@ void Player::Init(bool isInStage)
 	else
 	{
 		m_pos.x = Game::kScreenWidth / 4 * 3;
-		m_pos.y = Game::kScreenHeight / 2;
+		m_pos.y = Game::kScreenHeight / 4 * 3;
 	}
 }
 

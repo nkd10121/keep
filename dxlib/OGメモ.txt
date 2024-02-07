@@ -1,0 +1,69 @@
+OGメモ
+コーディング規約
+メンバ関数の名前は 頭文字大文字 で始める
+メンバ変数の名前は m_ で始める
+namespaceで作った定数は k で始める
+
+修正:
+〇コード関連
+・キャストは(int)じゃなくてstatic_cast<int>にする
+
+〇実装内容関連
+・チェックポイント関係を削除する
+
+未実装:
+・Sound関係のクラスを作る
+・Enemyの生成
+
+Sound、Graphクラスに欲しい機能
+・Loadする
+・Deleteする
+・恒常フラグ(BGMとSEやグラフィックとUIなどの区別ができるように)
+
+
+
+
+アニメーションの動きがパッとしないときは残像を表示すると何とかなる？
+加算ブレンドも良き
+ー＞光っている表現や、派手なエフェクト向け
+
+MakeScreen関数
+いままではメモリ上にロードしたのを使っていたが
+これを使うと、メモリ上に直接グラフィックデータを生成できる
+
+↑を使えば
+敵に合わせて画面を揺らすことができそう？？
+
+	//バックバッファに書き込む設定に戻しておく
+	SetDrawScreen(DX_SCREEN_BACK);
+
+	//ゲーム画面をバックバッファに描画する
+	int screenX = 0;
+	int screenY = 0;
+
+	if (m_shakeFrame > 0)
+	{
+		screenX = GetRand(8) - 4;
+		screenY = GetRand(8) - 4;
+
+	}
+
+	DrawGraph(screenX, screenY,m_gameScreenHandle,true);
+
+どこかでm_shakeFrameに値を入れて、0になるまで--する処理を描くといける
+
+
+敵を生成するのはGamePlayingSceneに入った瞬間に
+LONGLONG startTime = GetNowHiPerformanceCount();
+でGamePlayingSceneに入った瞬間の時間を覚えさせて
+LONGLONG time = GetNowHiPerformanceCount() - startTime;
+をゲームループ(Update)内に入れて
+GamePlayingSceneに入ってからの時間を計測する
+timeの数値に応じてif文でEnemyCreateしていく
+時間はかかりそうだけど確実
+(DrawFormatString(0,0,0xffffff,"%.2f", (float)start * 0.000001f);
+	で経過時間を確認できる)
+
+
+円と矩形の当たり判定
+https://ftvoid.com/blog/post/300

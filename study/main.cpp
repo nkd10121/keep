@@ -6,8 +6,8 @@ namespace Window
 	constexpr int kWidth = 1280;
 	constexpr int kHeight = 720;
 
-	constexpr int kHalfWidth = kWidth / 2;
-	constexpr int kHalfHeight = kHeight / 2;
+	constexpr int kHalfWidth = static_cast<int>(kWidth * 0.5f);
+	constexpr int kHalfHeight = static_cast<int>(kHeight * 0.5f);
 }
 
 // ƒvƒƒOƒ‰ƒ€‚Í WinMain ‚©‚çn‚Ü‚è‚Ü‚·

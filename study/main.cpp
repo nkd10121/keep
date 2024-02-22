@@ -1,5 +1,11 @@
 #include "DxLib.h"
 #include "DrawLib.h"
+#include <string>
+#include <fstream>
+#include <sstream>
+
+
+using namespace std;
 
 namespace Window
 {
@@ -22,9 +28,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		return -1;			// エラーが起きたら直ちに終了
 	}
 
-	DrawLib drawManager;
-
 	SetDrawScreen(DX_SCREEN_BACK);
+
 
 	// ゲームループ
 	while (ProcessMessage() != -1)
@@ -36,7 +41,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 
 		// ゲームの処理
-		drawManager.MyDrawCircle(Window::kHalfWidth,Window::kHalfHeight,10,0xffffff,true);
+		
+
 
 		// 画面が切り替わるのを待つ
 		ScreenFlip();

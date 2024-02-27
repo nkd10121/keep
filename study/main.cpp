@@ -1,9 +1,9 @@
 #include "DxLib.h"
 #include "DrawLib.h"
+
 #include <string>
 #include <fstream>
 #include <sstream>
-
 
 using namespace std;
 
@@ -30,6 +30,27 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	SetDrawScreen(DX_SCREEN_BACK);
 
+	std::string data;
+	std::string info;
+	std::string str_conma_buf;
+	std::string input_csv_file_path = "testData.csv";
+
+	// 読み込むcsvファイルを開く(std::ifstreamのコンストラクタで開く)
+	std::ifstream openFile(input_csv_file_path);
+
+
+	// getline関数で1行ずつ読み込む(読み込んだ内容はstr_bufに格納)
+	while (getline(openFile, data)) {
+		// 「,」区切りごとにデータを読み込むためにistringstream型にする
+		std::istringstream i_stream(data);
+
+		// 「,」区切りごとにデータを読み込む
+		while (getline(i_stream, str_conma_buf, ',')) {
+			info = str_conma_buf;
+		}
+	}
+
+	//printfDx("");
 
 	// ゲームループ
 	while (ProcessMessage() != -1)
@@ -42,6 +63,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		// ゲームの処理
 		
+		DrawFormatString(0, 0, 0xffffff, "%s", info);
 
 
 		// 画面が切り替わるのを待つ

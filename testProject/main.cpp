@@ -1,11 +1,4 @@
 #include "DxLib.h"
-#include <cmath>
-
-namespace
-{
-	constexpr int width = 8;
-	constexpr int height = 8;
-}
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -20,10 +13,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	float x = 0;
-	float y = 0;
-	float rad = DX_PI / 180 * 10;
-
 
 	// ゲームループ
 	while (ProcessMessage() != -1)
@@ -35,19 +24,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 
 		// ゲームの処理
-		x = x * cos(rad) - y * sin(rad) + 45;
-		y = x * sin(rad) + y * cos(rad) - 55;
 
-
-		DrawBox(x - width,
-			y - height,
-			x + width,
-			y + height,
-			0xffffff,
-			true);
-
-		DrawFormatString(0, 0, 0xffffff, "x = %f", x);
-		DrawFormatString(0, 16, 0xffffff, "y = %f", y);
 
 		// 画面が切り替わるのを待つ
 		ScreenFlip();

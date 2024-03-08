@@ -6,6 +6,14 @@
 #include <string>
 #include <vector>
 
+struct Data
+{
+	int stageNum;
+	int enemyNum;
+	int enemyKind;
+	int enemyFrame;
+};
+
 std::vector<std::string> Split(std::string str, const char sprit)
 {
 	std::vector<std::string> result;
@@ -42,8 +50,12 @@ int main()
 	// 取得した文字列を分割したものを入れておく用の変数
 	std::vector<std::string> strConmaBuf;
 
+
+	Data data;
+
+
 	// ファイル読み込み
-	std::ifstream ifs("StageData.csv");
+	std::ifstream ifs("test.csv");
 	if (!ifs)
 	{
 		assert(false);
@@ -56,12 +68,14 @@ int main()
 	// 全行読み込むまで繰り返す
 	while (std::getline(ifs, strBuf))
 	{
-#if false
+#if true
 		strConmaBuf = Split(strBuf, ',');
 
+		int idx = 0;
 		for (const auto& str : strConmaBuf)
 		{
-			std::cout << str.c_str() << "/" << std::flush;
+			//data.stageNum = stoi(str);
+			std::cout << str.c_str() << "," << std::flush;
 		}
 
 		//std::cout << strConmaBuf[0] << std::flush;

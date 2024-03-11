@@ -5,14 +5,44 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
-struct Data
+struct StageData
 {
-	int stageNum;
+	std::string BGMname;
+	int endFrame;
 	int enemyNum;
-	int enemyKind;
-	int enemyFrame;
 };
+
+struct EnemyData
+{
+	std::string enemyKind;
+	int entryFrame;
+	float posX;
+	float posY;
+	float VecX;
+	float VecY;
+	int size;
+	int moveSpeed;
+	int firstFrame;
+	int secondFrame;
+};
+
+namespace
+{
+	constexpr int kStageNum = 0;
+	constexpr int kBGMname = 1;
+	constexpr int kEndFrame = 2;
+	constexpr int kEnemyNum = 3;
+	constexpr int kPosX = 4;
+	constexpr int kPosY = 5;
+	constexpr int kVecX = 6;
+	constexpr int kVecY = 7;
+	constexpr int kSize = 8;
+	constexpr int kMoveSpeed = 9;
+	constexpr int kFirstFrame = 10;
+	constexpr int kSecondFrame = 11;
+}
 
 std::vector<std::string> Split(std::string str, const char sprit)
 {
@@ -43,6 +73,9 @@ std::vector<std::string> Split(std::string str, const char sprit)
 	return result;
 }
 
+void LoadStageData(std::vector<std::string> inData, std::unordered_map<int, StageData> stageData);
+void LoadEnemyData(std::vector<std::string> inData, std::unordered_map<int, StageData> stageData, std::unordered_map<int, EnemyData> enemyData);
+
 int main()
 {
 	// 取得する文字列を入れておく用の変数
@@ -51,11 +84,13 @@ int main()
 	std::vector<std::string> strConmaBuf;
 
 
-	Data data;
+	//std::unordered_map<int,StageData> m_stageData;
+	//std::unordered_map<int,EnemyData> m_enemyData;
 
+	std::unordered_map<int, StageData> m_data;
 
 	// ファイル読み込み
-	std::ifstream ifs("test.csv");
+	std::ifstream ifs("StageInfo.csv");
 	if (!ifs)
 	{
 		assert(false);
@@ -63,7 +98,8 @@ int main()
 	}
 
 //	// 読み込んだファイルから１行ずつ読み込む
-//	std::getline(ifs, strBuf);
+
+	std::getline(ifs, strBuf);
 
 	// 全行読み込むまで繰り返す
 	while (std::getline(ifs, strBuf))
@@ -72,10 +108,12 @@ int main()
 		strConmaBuf = Split(strBuf, ',');
 
 		int idx = 0;
-		for (const auto& str : strConmaBuf)
+		for (int i = 0;i < strConmaBuf.size();i++)
 		{
 			//data.stageNum = stoi(str);
-			std::cout << str.c_str() << "," << std::flush;
+			std::cout << strConmaBuf[i].c_str() << "," << std::flush;
+			LoadStageData(strConmaBuf, m_data);
+			//return 0;
 		}
 
 		//std::cout << strConmaBuf[0] << std::flush;
@@ -91,4 +129,12 @@ int main()
 	ifs.close();
 
 	return 0;
+}
+
+void LoadStageData(std::vector<std::string> inData, std::unordered_map<int, StageData> stageData)
+{
+	int tempStageNum = stoi(inData[kStageNum]);
+	stageData[tempStageNum].BGMname = inData[kBGMname];
+	stageData[tempStageNum].endFrame = stoi(inData[kEndFrame]);
+	stageData[tempStageNum].enemyNum = stoi(inData[kEnemyNum]);
 }

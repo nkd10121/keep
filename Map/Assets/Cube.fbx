@@ -9,10 +9,10 @@ FBXHeaderExtension:  {
 		Year: 2024
 		Month: 4
 		Day: 19
-		Hour: 11
-		Minute: 11
-		Second: 11
-		Millisecond: 971
+		Hour: 12
+		Minute: 48
+		Second: 56
+		Millisecond: 316
 	}
 	Creator: "FBX SDK/FBX Plugins version 2020.3.2"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -28,8 +28,8 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "C:\Users\fko2347087\Desktop\github\keep\Map\Assets\cr9iznew_Cube.fbx"
-			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\fko2347087\Desktop\github\keep\Map\Assets\cr9iznew_Cube.fbx"
+			P: "DocumentUrl", "KString", "Url", "", "C:\Users\fko2347087\Desktop\github\keep\Map\Assets\wdf03vlm_Cube.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\fko2347087\Desktop\github\keep\Map\Assets\wdf03vlm_Cube.fbx"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", ""
 			P: "Original|ApplicationName", "KString", "", "", "Unity FBX Exporter"
@@ -75,7 +75,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2402868078944, "Scene", "Scene" {
+	Document: 1425732794768, "Scene", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -220,7 +220,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 2400576784608, "Geometry::Scene", "Mesh" {
+	Geometry: 1426422307504, "Geometry::Scene", "Mesh" {
 		Vertices: *24 {
 			a: -50,-50,50,50,-50,50,-50,50,50,50,50,50,-50,50,-50,50,50,-50,-50,-50,-50,50,-50,-50
 		} 
@@ -329,7 +329,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2402861734256, "Model::Cube", "Mesh" {
+	Model: 1426421231456, "Model::Cube", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "RotationOrder", "enum", "", "",4
@@ -341,16 +341,16 @@ Objects:  {
 		Shading: W
 		Culling: "CullingOff"
 	}
-	Material: 2403017724976, "Material::Default_Material", "" {
+	Material: 1422732308560, "Material::New_Material", "" {
 		Version: 102
 		ShadingModel: "lambert"
 		MultiLayer: 0
 		Properties70:  {
 			P: "AmbientColor", "Color", "", "A",0,0,0
-			P: "DiffuseColor", "Color", "", "A",1,1,1
+			P: "DiffuseColor", "Color", "", "A",1,0,0
 			P: "Emissive", "Vector3D", "Vector", "",0,0,0
 			P: "Ambient", "Vector3D", "Vector", "",0,0,0
-			P: "Diffuse", "Vector3D", "Vector", "",1,1,1
+			P: "Diffuse", "Vector3D", "Vector", "",1,0,0
 			P: "Opacity", "double", "Number", "",1
 		}
 	}
@@ -362,13 +362,13 @@ Objects:  {
 Connections:  {
 	
 	;Model::Cube, Model::RootNode
-	C: "OO",2402861734256,0
+	C: "OO",1426421231456,0
 	
-	;Material::Default_Material, Model::Cube
-	C: "OO",2403017724976,2402861734256
+	;Material::New_Material, Model::Cube
+	C: "OO",1422732308560,1426421231456
 	
 	;Geometry::Scene, Model::Cube
-	C: "OO",2400576784608,2402861734256
+	C: "OO",1426422307504,1426421231456
 }
 ;Takes section
 ;----------------------------------------------------

@@ -1,2 +1,0 @@
-OS Windows11Home
-GPU NVIDIA GeForce RTX 4070

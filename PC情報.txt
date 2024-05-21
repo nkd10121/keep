@@ -1,0 +1,8 @@
+〇家
+OS:Windows11 Home
+GPU:NVIDIA GeForce RTX 4070
+
+
+〇学校
+OS:Windows11 Pro
+GPU:NVIDIA GeForce RTX 3070

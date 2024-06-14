@@ -1,0 +1,88 @@
+ID,JP,US
+MSG_GAMETITLE,ホルゲーム!,DIG GAME!
+MSG_TITLE_START,ボタンをおしてね！,Push the buttons!
+MSG_PLAY_STARTABUTTON,Aボタンでスタート!,Press A to start!
+MSG_PLAY_TUTORIAL_0,→　むいているほうにかってにすすむよ！,It moves forward on its own!
+MSG_PLAY_TUTORIAL_1,↑ボタン　でうえをむくよ！,↑button Look up!
+MSG_PLAY_TUTORIAL_2,↓ボタン　でしたをむくよ！,↓button Look down!
+MSG_PLAY_TUTORIAL_3,↑ ↑ ↑　かべにぶつかるとゲームオーバー！,↑ ↑ ↑ Hit a wall、 the game is over!
+MSG_PLAY_TUTORIAL_MULTI,← がめんがいに出てもゲームオーバー！,← Goes off the screen、 the game is over!
+MSG_PLAY_SPEEDUP,スピードアップ！,SPEED UP!
+MSG_PLAY_RETRY,リトライ,Retry
+MSG_PLAY_QUIT,やめる,Quit
+MSG_PLAY_PAUSE,ポーズ,Pause
+MSG_MAIN_TITLE,なにしてあそぶ？,What to play?
+MSG_MAIN_SINGLE,ホルフォーエヴァー,DIG FOREVER
+MSG_MAIN_MULTI,ホルサヴァイヴァル,DIG SURVIVAL
+MSG_MAIN_RANKING,ランキング,RANKING
+MSG_MAIN_CONFIG,ゲームせってい,SETTINGS
+MSG_MAIN_STAFF,クレジット,CREDITS
+MSG_MAIN_TOTITLE,タイトルへ,TO TITLE
+MSG_MAIN_END,やめる,EXIT
+MSG_MAIN_T_DEFAULT,なにをしてあそぶかえらんでね！,Choose what you want to play!
+MSG_MAIN_T_SINGLE,ひとりであそぶ！かべをよけてどこまでほれるかな？がんばってランクインをめざそう！,Play alone! How far can you dig without dodging walls? Do your best and try to get ranked!
+MSG_MAIN_T_MULTI,さいだい８にんまであそべるよ！さいごまでいきのこるのはだれだ？,Up to 8 players can play! Who will survive to the end?
+MSG_MAIN_T_RANKING,ランキングをみる！,Rankings!
+MSG_MAIN_T_CONFIG,ゲームのせっていをへんこうできるよ！,You can change the game settings!
+MSG_MAIN_T_STAFF,このゲームをつくったひとたち,The people who created this game.
+MSG_MAIN_T_TOTITLE,タイトルにもどる！,Back to the title!
+MSG_MAIN_T_END,ゲームをおわる！おつかれさまでした！,Finish the game! Thank you for playing!
+MSG_MULTI_TITLE,みんなであそぶ,Play together
+MSG_MULTI_T_DEFAULT,なんにんであそぶかえらんでね！←→であそぶキャラクターかえられるよ！,Choose how many people you want to play with! You can change the character with the ← and → keys!
+MSG_MULTI_NUM_2,ふたり,Two
+MSG_MULTI_NUM_3,さんにん,Three
+MSG_MULTI_NUM_4,よにん,Four
+MSG_MULTI_NUM_5,ごにん,Five
+MSG_MULTI_NUM_6,ろくにん,Six
+MSG_MULTI_NUM_7,ななにん,Seven
+MSG_MULTI_NUM_8,はちにん,Eight
+MSG_RECORD_T_DEFAULT,ホルフォーエヴァーをプレイしてランクインをめざそう！,Play Dig Forever and try to get ranked!
+MSG_CONFIG_TITLE,ゲームせってい,SETTINGS
+MSG_CONFIG_LANGUAGE,げんご,Language
+MSG_CONFIG_BGM,BGM,BGM
+MSG_CONFIG_SE,SE,SE
+MSG_CONFIG_VIBRATION,しんどう,Vibration
+MSG_CONFIG_SCREENMODE,フルスクリーン,Full screen
+MSG_CONFIG_ERASE,データをけす,Clearing Data
+MSG_CONFIG_T_DEFAULT,かえたいせっていをえらんでね！,Choose the setting you want to change!
+MSG_CONFIG_T_LANGUAGE,メッセージにつかわれるげんごをかえます,Change the language used in the message
+MSG_CONFIG_T_BGM,BGMのおんりょうをかえます,Change the volume of the background music
+MSG_CONFIG_T_SE,SEのおんりょうをかえます,Change the volume of sound effects
+MSG_CONFIG_T_VIBRATION,しんどうするかをきめます,Decide if the controller should vibrate or not
+MSG_CONFIG_T_SCREENMODE,フルスクリーンかウインドウかをきめます,Select full screen or window
+MSG_CONFIG_T_ERASE,セーブデータをけします！まちがえてえらばないでね！！,Delete save data! Don't choose the wrong one!
+MSG_CONFIG_ITEM_FULLSCREEN,フルスクリーン,Full screen
+MSG_CONFIG_ITEM_WINDOW,ウインドウ,Window
+MSG_CONFIG_CHANGE,A:へんこう!,A:Change!
+MSG_LANGUAGE_JP,にほんご,にほんご
+MSG_LANGUAGE_US,English,English
+MSG_RANKING_TITLESINGLE,ゲームオーバー,GAME OVER
+MSG_RANKING_TITLEMULTI,けっかはっぴょう,RESULTS
+MSG_RANKING_TITLERECORD,ランキング,RANKING
+MSG_STAFF_TITLE,クレジット,CREDITS
+MSG_STAFF_T_DEFAULT,このゲームをつくったひとたち,The people who created this game.
+MSG_STAFF_NAME_0,グラフィック ぴぽや倉庫,Graphic ぴぽや倉庫
+MSG_STAFF_URL_0,https://pipoya.net/sozai/,https://pipoya.net/sozai/
+MSG_STAFF_NAME_1,グラフィック Pixel Frog,Graphic Pixel Frog
+MSG_STAFF_URL_1,https://pixelfrog-assets.itch.io/,https://pixelfrog-assets.itch.io/
+MSG_STAFF_NAME_2,フォント GN's Side,Font GN's Side
+MSG_STAFF_URL_2,http://getsuren.com/,http://getsuren.com/
+MSG_STAFF_NAME_3,BGM 魔王魂,BGM 魔王魂
+MSG_STAFF_URL_3,https://maou.audio/,https://maou.audio/
+MSG_STAFF_NAME_4,SE 効果音ラボ,SE 効果音ラボ
+MSG_STAFF_URL_4,https://soundeffect-lab.info/,https://soundeffect-lab.info/
+MSG_RANKING_01,1位,1st
+MSG_RANKING_02,2位,2nd
+MSG_RANKING_03,3位,3rd
+MSG_RANKING_04,4位,4th
+MSG_RANKING_05,5位,5th
+MSG_RANKING_06,6位,6th
+MSG_RANKING_07,7位,7th
+MSG_RANKING_08,8位,8th
+MSG_RANKING_09,9位,9th
+MSG_RANKING_10,10位,10th
+MSG_COMMON_ON,ON,ON
+MSG_COMMON_OFF,OFF,OFF
+MSG_COMMON_UNIT,メートル,meter
+MSG_COMMON_UNITS,メートル,meters
+MSG_COMMON_T_BACK,B:もどる,B:Back
